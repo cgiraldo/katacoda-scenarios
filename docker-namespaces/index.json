@@ -5,11 +5,14 @@
   "time": "4 minutes",
   "details": {
     "steps": [{
+      "title": "Creación del entorno de pruebas",
+      "text": "step2.md"
+    },{
       "title": "PID Namespace",
-      "text": "step1.md"
+      "text": "step2.md"
     },{
       "title": "Network Namespace",
-      "text": "step2.md"
+      "text": "step3.md"
     }],
     "intro": {
       "text": "intro.md",
