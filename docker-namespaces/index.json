@@ -25,7 +25,7 @@
   },
   "environment": {
     "uilayout": "terminal-terminal",
-    "uimessage1": "\u001b[32mInteractive Bash @ HOST\u001b[m\r\n"
+    "uimessage1": "\u001b[32mInteractive Bash @ HOST\u001b[m\r\n\r\n"
   },
   "backend": {
     "imageid": "ubuntu"
