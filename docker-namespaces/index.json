@@ -17,8 +17,9 @@
     }
   },
   "environment": {
-    "uilayout": "terminal-terminal",
-    "uimessage1": "\u001b[32mYour Interactive Bash \u001b[m\r\n"
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mInteractive Bash @ HOST\u001b[m\r\n",
+    "uimessage2": "\u001b[32mInteractive bash @ CONTAINER T2 \u001b[m\r\n"
   },
   "backend": {
     "imageid": "docker"
