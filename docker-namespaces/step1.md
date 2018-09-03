@@ -1,40 +1,38 @@
 La tecnología de contenedores hace uso de varias características presentes en los últimos kernel de Linux que permiten aislar ("conteneirizar") procesos. Esto permite instalar y ejecutar múltiples servicios en un mismo Host sin que exista visibilidad entre ellos. Este aislamiento se produce en los siguientes niveles:
-- namespace de procesos.
-- namespace de ficheros.
-- namespace de red.
+- User Namespace.
+- Unix Time-Sharing Namespace.
+- IPC Namespace.
+- Mount Namespace.
+- PID Namespace.
+- Network Namespace.
 
-## Tarea
+## Creación del entorno de pruebas
 
-Lanzaremos dos contenedores en modo _terminal interactivo_ y comprobamos la independencia de procesos
+El terminal **T1** nos da acceso al Host donde se lanzan los contenedores, y lo utilizaremos principalmente para gestionar los contenedores mediante el CLI de docker.
+Los terminal **T2** y **T3** dan acceso a dos contenedores independientes que lanzaremos en el host. 
 
-`docker run -ti --rm alpine`{{execute}}
+Lanzamiendo de los contenedores en modo _terminal interactivo_
+
+`docker run -ti --rm --name t2 alpine`{{execute T2}}
+`docker run -ti --rm --name t3 alpine`{{execute T3}}
+
+`docker ps`{{execute T1}}
+
+### PID Namespaces
+Comprobamos que por defecto existe un aislamiento en los procesos lanzados en cada contenedor
+
+`top &`{{execute T2}}
+`yes &`{{execute T3}}
+
+`ps -aux`{{execute T2}}
+`ps -aux`{{execute T3}}
+
+Es posible compartir el PID Namespace de dos contenedores. El contenedor T4 comparte el PID Namespace con el T2.
+
+`docker run -ti --rm --name t4 --pid=container:t2 alpine`{{execute T4}}
+`ps -aux` {{execute T4}}
+`yes &` {{execute T4}}
+`ps -aux` {{execute T4}}
+`ps -aux` {{execute T2}}
 
 
-Terminal Integration
-Allow a code block to be executed `some-command`{{execute}}
-
-For multiple terminals, execute the command on HOST1 `some-command`{{execute HOST1}}
-For multiple terminals, execute the command on HOST2 `some-command`{{execute HOST2}}
-
-For multiple terminals, execute the command on T1 `some-command`{{execute T1}}
-For multiple terminals, execute the command on T2 `some-command`{{execute T2}}
-
-Allow a code block to be copied `some-command`{{copy}}
-          
-Editor Integration
-
-<pre class="file" data-filename="app.js" data-target="replace">var http = require('http');
-var requestListener = function (req, res) {
-  res.writeHead(200);
-  res.end('Hello, World!');
-}
-
-var server = http.createServer(requestListener);
-server.listen(3000, function() { console.log("Listening on port 3000")});
-</pre>
-          
-
-<pre class="file" data-target="clipboard">Test</pre>
-          
-
-<pre class="file" data-target="regex???">Test</pre>
