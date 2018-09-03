@@ -1,8 +1,8 @@
 En este paso comprobamos que por defecto existe un aislamiento en el sistema de ficheros de cada contenedor.
 
-- Creamos el fichero `file2.txt en el contenedor T2 `touch file2.txt`{{execute T2}}
+- Creamos el fichero _file2.txt_ en el contenedor T2 `touch file2.txt`{{execute T2}}
 
-- Creamos el fichero `file3.txt en el contenedor T3 `touch file3.txt`{{execute T3}}
+- Creamos el fichero _file3.txt_ en el contenedor T3 `touch file3.txt`{{execute T3}}
 
 - Comprobamos los ficheros de T2 `ls`{{execute T2}} y de T3 `ls`{{execute T3}}
 
