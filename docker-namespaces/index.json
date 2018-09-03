@@ -6,7 +6,7 @@
   "details": {
     "steps": [{
       "title": "Creación del entorno de pruebas",
-      "text": "step2.md"
+      "text": "step1.md"
     },{
       "title": "PID Namespace",
       "text": "step2.md"
