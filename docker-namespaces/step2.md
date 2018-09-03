@@ -36,6 +36,8 @@ Es posible incluso no aislar los PIDs del contenedor y que comparta el PID Names
 
 - Lanzamos proceso _dc_ en T5 `dc &`{{execute T5}}
 
+- Lista de procesos de T5 `ps`{{execute T5}}
+
 - Lista de procesos del host `ps`{{execute T1}}
 
 

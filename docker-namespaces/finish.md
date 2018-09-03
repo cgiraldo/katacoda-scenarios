@@ -1,1 +1,1 @@
-You've completed your first Katacoda scenario!
+¡Ahora conoces el funcionamiento de los distintos namespaces de los contenedores Docker!

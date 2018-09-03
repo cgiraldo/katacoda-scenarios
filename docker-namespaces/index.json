@@ -1,7 +1,7 @@
 { "pathwayTitle" : "Docker SkillShare",
   "title": "Container Namespaces",
   "description": "Demonstrating Container namespace isolation",
-  "difficulty": "beginner",
+  "difficulty": "intermediate",
   "time": "4 minutes",
   "details": {
     "steps": [{
@@ -13,6 +13,9 @@
     },{
       "title": "Network Namespace",
       "text": "step3.md"
+    },{
+      "title": "Mount Namespace",
+      "text": "step4.md"
     }],
     "intro": {
       "text": "intro.md",
