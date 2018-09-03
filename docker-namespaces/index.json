@@ -5,8 +5,11 @@
   "time": "4 minutes",
   "details": {
     "steps": [{
-      "title": "Process Isolation",
+      "title": "PID Namespace",
       "text": "step1.md"
+    },{
+      "title": "Network Namespace",
+      "text": "step2.md"
     }],
     "intro": {
       "text": "intro.md",
