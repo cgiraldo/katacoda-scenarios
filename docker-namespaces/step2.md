@@ -30,13 +30,11 @@ Es posible compartir el PID Namespace de dos contenedores. Lanzamos ahora el con
 
 ***
 
-Es posible incluso no aislar los PIDs del contenedor y que formen parte de los PIDs del Host
+Es posible incluso no aislar los PIDs del contenedor y que comparta el PID Namespace del Host
 
 - `docker run -ti --rm --name t5 --pid=host alpine`{{execute T5}}
 
 - Lanzamos proceso _dc_ en T5 `dc &`{{execute T5}}
-
-- Lista de procesos de T5 `ps`{{execute T5}}
 
 - Lista de procesos del host `ps`{{execute T1}}
 
