@@ -7,9 +7,11 @@ En este paso comprobamos que por defecto existe un aislamiento en los procesos l
 
 - Lanzamos proceso _sum_ en T3 `sum &`{{execute T3}}
 
-- Lista de procesos de T2 `ps aux`{{execute T2}}
+- Lista de procesos de T2 `ps`{{execute T2}}
 
-- Lista de procesos de T3 `ps aux`{{execute T3}}
+- Lista de procesos de T3 `ps`{{execute T3}}
+
+- Lista de procesos en el HOST `ps`{{execute T1}}
 
 
 ***
@@ -20,9 +22,11 @@ Es posible compartir el PID Namespace de dos contenedores. Lanzamos ahora el con
 
 - Lanzamos proceso _wc_ en T4 `wc &`{{execute T4}}
 
-- Lista de procesos de T4 `ps aux`{{execute T4}}
+- Lista de procesos de T4 `ps`{{execute T4}}
 
-- Lista de procesos de T2 `ps aux`{{execute T2}}
+- Lista de procesos de T2 `ps`{{execute T2}}
+
+- Lista de procesos en el HOST `ps`{{execute T1}}
 
 ***
 
@@ -32,9 +36,9 @@ Es posible incluso no aislar los PIDs del contenedor y que formen parte de los P
 
 - Lanzamos proceso _dc_ en T5 `dc &`{{execute T5}}
 
-- Lista de procesos de T5 `ps aux`{{execute T5}}
+- Lista de procesos de T5 `ps`{{execute T5}}
 
-- Lista de procesos del host `ps aux`{{execute T1}}
+- Lista de procesos del host `ps`{{execute T1}}
 
 
 
