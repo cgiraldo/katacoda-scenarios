@@ -31,6 +31,8 @@ Recreamos el contenedor T5 con esa configuración.
 
 - Comprobamos la IP y la MAC del contenedor T5 `ifconfig`{{execute T5}}
 
-- Comprobamos la IP y la MAC del HOST `ifconfig`{{execute T1}}
+Sin embargo podemos comprobar el el ailamiento de PID Namespace se mantiene ahora en el T5.
+
+- Lista de procesos de T5 `ps`{{execute T5}}
 
 ***
