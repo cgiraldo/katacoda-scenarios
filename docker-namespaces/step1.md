@@ -18,11 +18,11 @@ Es posible compartir el PID Namespace de dos contenedores. Lanzamos ahora el con
 
 - `docker run -ti --rm --name t4 --pid=container:t2 alpine`{{execute T4}}
 
-- Lanzamos proceso _wc_ en T4 `wc &` {{execute T4}}
+- Lanzamos proceso _wc_ en T4 `wc &`{{execute T4}}
 
-- Lista de procesos de T4 `ps aux` {{execute T4}}
+- Lista de procesos de T4 `ps aux`{{execute T4}}
 
-- Lista de procesos de T2 `ps aux` {{execute T2}}
+- Lista de procesos de T2 `ps aux`{{execute T2}}
 
 
 
