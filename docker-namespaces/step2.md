@@ -24,5 +24,17 @@ Es posible compartir el PID Namespace de dos contenedores. Lanzamos ahora el con
 
 - Lista de procesos de T2 `ps aux`{{execute T2}}
 
+***
+
+Es posible incluso no aislar los PIDs del contenedor y que formen parte de los PIDs del Host
+
+- `docker run -ti --rm --name t5 --pid=host alpine`{{execute T5}}
+
+- Lanzamos proceso _dc_ en T5 `dc &`{{execute T5}}
+
+- Lista de procesos de T5 `ps aux`{{execute T5}}
+
+- Lista de procesos del host `ps aux`{{execute T1}}
+
 
 
