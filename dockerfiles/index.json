@@ -38,7 +38,7 @@
       ]
     }
   },
-  "files": ["Dockerfile"],
+  "files": ["nginx/Dockerfile"],
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "dockerfile",
