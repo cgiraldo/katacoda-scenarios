@@ -1,6 +1,7 @@
 
 A continuación vamos a dockerizar el comando curl
 
+
 CONSTRUIR IMAGEN -> `docker build -t curl .`{{execute}}
 
 LANZAR IMAGEN -> `docker run --rm curl`{{execute}}

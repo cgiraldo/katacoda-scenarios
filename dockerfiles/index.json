@@ -11,11 +11,8 @@
       "title": "Dockerizando un servicio",
       "text": "step2.md"
     },{
-      "title": "Sistema de Configuración",
-      "text": "step3.md"
-    },{
       "title": "Imagen a partir de código fuente",
-      "text": "step4.md"
+      "text": "step3.md"
     }],
     "intro": {
       "text": "intro.md",
