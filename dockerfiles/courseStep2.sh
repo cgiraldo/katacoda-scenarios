@@ -1,2 +1,2 @@
-cp -r ../nginx .
-cp -r ../static .
+cp -r /tmp/nginx .
+cp -r /tmp/static .
