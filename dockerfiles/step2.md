@@ -1,8 +1,15 @@
 A continuación vamos a dockerizar el servicio nginx
 
+<pre class="file" data-filename="Dockerfile" data-target="replace">
+FROM alpine:3.8
+</pre>
+
 El servicio nginx puede instalarse en Alpine mediante su sistema de paquetes _apk_.
 
 <pre class="file" data-target="clipboard">RUN apk add --no-cache nginx</pre>
+
+
+<pre class="file" data-filename="Dockerfile" data-target="clipboard">RUN apk add --no-cache nginx2</pre>
 
 Vamos a incluir una configuración por defecto diferente a la que vienen en el paquete nginx de Alpine, indicando la 
 ruta _/usr/share/nginx/html_ desde donde se servirá contenido estático. 
