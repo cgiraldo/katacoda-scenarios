@@ -38,7 +38,6 @@
       ]
     }
   },
-  "files": ["curl/Dockerfile"],
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "dockerfile",
