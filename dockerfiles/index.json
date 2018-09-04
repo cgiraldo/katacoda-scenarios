@@ -29,13 +29,13 @@
       "client": [
         {
           "file": "nginx.vh.default.conf",
-          "target": "~/"
+          "target": "/root/"
         }
       ],
       "host01": [
         {
           "file": "nginx.vh.default.conf",
-          "target": "~/"
+          "target": "/root/"
         }
       ]
     }
@@ -47,6 +47,6 @@
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "docker"
   }
 }
