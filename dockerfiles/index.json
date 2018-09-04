@@ -29,7 +29,7 @@
       "client": [
         {
           "file": "nginx/Dockerfile",
-          "target": "~/nginxDocker"
+          "target": "~/tutorial/nginx/"
         },
         {
           "file": "nginx.vh.default.conf",
