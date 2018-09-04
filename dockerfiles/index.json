@@ -34,7 +34,7 @@
     ],
      "host01": [
       {
-        "file": "Dockerfile",
+        "file": "config.yml",
         "target": "~/"
       }
      ]
@@ -44,6 +44,6 @@
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n"
   },
   "backend": {
-    "imageid": "docker"
+    "imageid": "ubuntu"
   }
 }
