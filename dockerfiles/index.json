@@ -31,7 +31,7 @@
         "file": "Dockerfile",
         "target": "~/curl/"
       }
-    ],
+    ]
    },
   "environment": {
     "uilayout": "editor-terminal",
