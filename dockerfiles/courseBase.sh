@@ -1,4 +1,4 @@
 #!/bin/bash
 
 apt-get remove -y curl
-mkdir nginx
+mkdir -p tutorial/nginx
