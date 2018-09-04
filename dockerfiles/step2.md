@@ -11,6 +11,7 @@ El servicio nginx puede instalarse en Alpine mediante su sistema de paquetes _ap
 
 <pre class="file" data-filename="Dockerfile" data-target="append"> append </pre>
 <pre class="file" data-filename="Dockerfile" data-target="regexFROM"> regexx </pre>
+<pre class="file" data-filename="Dockerfile" data-target="regexappend"> regex2 </pre>
 Vamos a incluir una configuración por defecto diferente a la que vienen en el paquete nginx de Alpine, indicando la 
 ruta _/usr/share/nginx/html_ desde donde se servirá contenido estático. 
 
