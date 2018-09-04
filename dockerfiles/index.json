@@ -25,8 +25,8 @@
     "assets": {
       "client": [
         {
-          "file": "nginx/Dockerfile",
-          "target": "~/tutorial/nginx/"
+          "file": "nginx_context/Dockerfile",
+          "target": "~/tutorial/nginx_context/"
         },
         {
           "file": "nginx.vh.default.conf",
@@ -35,6 +35,9 @@
       ]
     }
   },
+  "files": [
+    "Dockerfile"
+  ],
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "dockerfile",
