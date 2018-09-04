@@ -94,7 +94,7 @@ Para construir la imagen de _ngninx_ indicamos al comando _docker build_ el nuev
 
 `docker build -t mynginx .`{{execute}}
 
-`docker run -v $PWD/nginx/static/:/usr/share/nginx/html`{{execute}}
+`docker run -d -v $PWD/static/:/usr/share/nginx/html -p 80:80 mynginx`{{execute}}
 
 Render port 80: https://[[HOST_SUBDOMAIN]]-80-[[KATACODA_HOST]].environments.katacoda.com/
 

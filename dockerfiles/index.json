@@ -30,8 +30,8 @@
           "target": "~/nginx/"
         },
         {
-          "file": "nginx/static/index.html",
-          "target": "~/nginx/static/"
+          "file": "static/index.html",
+          "target": "~/static/"
         }
       ]
     }
