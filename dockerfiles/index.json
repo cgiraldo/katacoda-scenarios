@@ -33,7 +33,7 @@
         },
         {
           "file": "nginx.vh.default.conf",
-          "target": "~/"
+          "target": "~/nginx/"
         }
       ]
     }
