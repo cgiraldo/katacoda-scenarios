@@ -2,7 +2,7 @@
 
 CONSTRUIR IMAGEN -> `docker build -t curl .`{{execute}}
 
-LANZAR IMAGEN -> `docker run -ti --rm curl`{{copy}}
+LANZAR IMAGEN -> `docker run -ti --rm curl`{{execute}}
 
 ---
 
@@ -35,3 +35,7 @@ RUN apk add --no-cache curl
 ENTRYPOINT ["curl"]
 CMD ["--help"]
 </pre>
+
+######BONUS 
+
+`docker run curl -s wttr.in/~"vigo"`{{execute}}
