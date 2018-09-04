@@ -28,8 +28,12 @@
     "assets": {
       "client": [
         {
-          "file": "nginx",
-          "target": "~/"
+          "file": "nginx/Dockerfile",
+          "target": "~/nginx/"
+        },
+        {
+          "file": "nginx/nginx.vh.default.conf",
+          "target": "~/nginx/"
         }
       ]
     }

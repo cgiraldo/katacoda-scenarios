@@ -1,5 +1,12 @@
 A continuación vamos a dockerizar el servicio nginx
 
+CONSTRUIR IMAGEN -> `docker build -t mynginx nginx`{{execute}}
+
+LANZAR IMAGEN -> `docker run --rm mynginx`{{execute}}
+
+---
+
+
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8
 </pre>
