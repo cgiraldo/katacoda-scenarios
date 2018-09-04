@@ -29,8 +29,8 @@
           "target": "~/tutorial/nginx_context/"
         },
         {
-          "file": "nginx.vh.default.conf",
-          "target": "~/tutorial/nginx/"
+          "file": "nginx_context/nginx.vh.default.conf",
+          "target": "~/tutorial/nginx_context/"
         }
       ]
     }

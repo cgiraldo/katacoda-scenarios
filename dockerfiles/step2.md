@@ -1,6 +1,8 @@
-A continuación vamos a dockerizar el servicio nginx, por lo que cerramos en el editor el Dockerfile previo y abrimos 
-el nginx_context/Dockerfile.
+A continuación vamos a dockerizar el servicio nginx, 
 
+<div class="alert alert-success">
+Debemos cerrar el Dockerfile previo del editor y abrir el fichero nginx_context/Dockerfile.
+</div>
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8
