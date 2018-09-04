@@ -25,22 +25,10 @@
       "text": "finish.md"
     }
   },
-   "assets": {
-    "client": [
-      {
-        "file": "Dockerfile",
-        "target": "~/"
-      }
-    ],
-     "host01": [
-      {
-        "file": "config.yml",
-        "target": "~/"
-      }
-     ]
-   },
+  "files": ["Dockerfile"],
   "environment": {
     "uilayout": "editor-terminal",
+    "uisettings": "dockerfile",
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n"
   },
   "backend": {
