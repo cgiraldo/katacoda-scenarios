@@ -28,7 +28,7 @@
     "assets": {
       "client": [
         {
-          "file": "nginx.vh.default.conf",
+          "file": "nginx",
           "target": "~/"
         }
       ]
