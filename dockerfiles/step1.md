@@ -1,4 +1,5 @@
-<pre class="file" data-filename="app.js" data-target="replace">var http = require('http');
+<pre class="file" data-filename="Dockerfile" data-target="replace">
+FROM alpine:3.8
 var requestListener = function (req, res) {
   res.writeHead(200);
   res.end('Hello, World!');
@@ -14,4 +15,4 @@ server.listen(3000, function() { console.log("Listening on port 3000")});
 
 <pre class="file" data-target="regex???">Test</pre>
 
-Allow a code block to be executed `some-command`{{execute}}
+Construye tu imagen curl de Docker clickando aquí -> `docker build -t curl .`{{execute}}
