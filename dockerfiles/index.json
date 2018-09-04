@@ -9,7 +9,8 @@
       "text": "step1.md"
     },{
       "title": "Dockerizando un servicio",
-      "text": "step2.md"
+      "text": "step2.md",
+      "code": "courseStep2.sh"
     },{
       "title": "Imagen a partir de código fuente",
       "text": "step3.md"
@@ -25,12 +26,12 @@
     "assets": {
       "client": [
         {
-          "file": "nginx_context/Dockerfile",
-          "target": "~/tutorial/nginx_context/"
+          "file": "nginx/Dockerfile",
+          "target": "~/nginx/"
         },
         {
-          "file": "nginx_context/nginx.vh.default.conf",
-          "target": "~/tutorial/nginx_context/"
+          "file": "nginx/static/index.html",
+          "target": "~/nginx/static/"
         }
       ]
     }
