@@ -27,8 +27,7 @@ LABEL organization="gradiant.org"
 
 El sistema Alpine linux cuenta con el gestor de paquetes _apk_ similar a _apt_ de debian/ubuntu o _yum_ de redhat/centos.
 
-<pre class="file" data-filename="Dockerfile" data-target="replace">
-FROM alpine:3.8
+<pre class="file" data-filename="Dockerfile" data-target="append">
 RUN apk add --no-cache curl
 </pre>
 
@@ -37,9 +36,7 @@ Dockerfile Best-Practice
 
 Indicamos como entrypoint el binario _curl_ e indicamos que se utilice parámetro --help como parámetro por defecto.
 
-<pre class="file" data-filename="Dockerfile" data-target="replace">
-FROM alpine:3.8
-RUN apk add --no-cache curl
+<pre class="file" data-filename="Dockerfile" data-target="append">
 ENTRYPOINT ["curl"]
 CMD ["--help"]
 </pre>

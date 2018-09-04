@@ -7,7 +7,8 @@ FROM alpine:3.8
 
 El servicio nginx puede instalarse en Alpine mediante su sistema de paquetes _apk_.
 
-<pre class="file" data-filename="Dockerfile" data-target="append"> RUN apk add --no-cache nginx </pre>
+<pre class="file" data-filename="Dockerfile" data-target="append">
+RUN apk add --no-cache nginx </pre>
 
 
 Vamos a incluir una configuración por defecto diferente a la que vienen en el paquete nginx de Alpine, para indicar 
@@ -23,7 +24,8 @@ Esta configuración se encuentra en el fichero nginx.vh.default.conf por lo que 
 añadir ficheros del host a la imagen docker que estamos construyendo.
 
 <pre class="file" data-filename="Dockerfile" data-target="append">
-COPY nginx.vh.default.conf /etc/nginx/conf.d/default.conf</pre>
+COPY nginx/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+RUN mkdir -p /usr/share/nginx/html</pre>
 
 
 ###Contenido estático 
