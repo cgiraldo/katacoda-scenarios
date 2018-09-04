@@ -29,13 +29,13 @@
     "client": [
       {
         "file": "Dockerfile",
-        "target": "~/curl/"
+        "target": "~/"
       }
     ],
      "host01": [
       {
         "file": "Dockerfile",
-        "target": "~/curl2/"
+        "target": "~/"
       }
      ]
    },
