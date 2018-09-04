@@ -25,6 +25,14 @@
       "text": "finish.md"
     }
   },
+   "assets": {
+    "client": [
+      {
+        "file": "Dockerfile",
+        "target": "~/curl/"
+      }
+    ],
+   },
   "environment": {
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n"
