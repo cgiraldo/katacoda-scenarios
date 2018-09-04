@@ -31,6 +31,12 @@
           "file": "nginx.vh.default.conf",
           "target": "~/"
         }
+      ],
+      "host01": [
+        {
+          "file": "nginx.vh.default.conf",
+          "target": "~/"
+        }
       ]
     }
   },
