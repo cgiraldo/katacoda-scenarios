@@ -2,7 +2,7 @@
   "title": "Container Namespaces",
   "description": "Demonstrating Container namespace isolation",
   "difficulty": "intermediate",
-  "time": "4 minutes",
+  "time": "12 minutes",
   "details": {
     "steps": [{
       "title": "Creación del entorno de pruebas",

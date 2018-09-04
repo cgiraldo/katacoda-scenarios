@@ -38,6 +38,8 @@ Es posible incluso no aislar los PIDs del contenedor y que comparta el PID Names
 
 - Lista de procesos de T5 `ps`{{execute T5}}
 
+El comando `ps` de alpine-linux es el de busybox y lista todos los procesos por defecto. Instalamos el comando ps propio de linux Para listar sólo los procesos con tty utilizaremos el comando ps del paquete los procesos no 
+
 - Lista de procesos del host `ps`{{execute T1}}
 
 

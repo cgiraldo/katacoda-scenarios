@@ -1,0 +1,35 @@
+{ "pathwayTitle" : "Docker SkillShare",
+  "title": "Dockerfile",
+  "description": "Creando imágenes Docker de Calidad",
+  "difficulty": "intermediate",
+  "time": "10 minutes",
+  "details": {
+    "steps": [{
+      "title": "Imagen Base",
+      "text": "step1.md"
+    },{
+      "title": "Sintaxis Dockerfile",
+      "text": "step2.md"
+    },{
+      "title": "Sistema de Configuración",
+      "text": "step3.md"
+    },{
+      "title": "Imagen a partir de código fuente",
+      "text": "step4.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "docker"
+  }
+}
