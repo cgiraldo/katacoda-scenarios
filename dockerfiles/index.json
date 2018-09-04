@@ -28,7 +28,9 @@
         {
           "file": "nginx/nginx.vh.default.conf",
           "target": "~/nginx/"
-        },
+        }
+      ],
+       "host01": [
         {
           "file": "static/index.html",
           "target": "~/static/"
