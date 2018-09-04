@@ -1,14 +1,16 @@
 A continuación vamos a dockerizar el servicio nginx.  
 
 De nuevo comenzamos el Dockerfile a partir de la imagen de referencia de Alpine.
-<pre class="file" data-filename="Dockerfile" data-target="replace">
-FROM alpine:3.8
+<pre class="file" data-filename="Dockerfile" data-target="replace">FROM alpine:3.8
+LABEL maintainer="cgiraldo@gradiant.org"
+LABEL organization="gradiant.org"
 </pre>
 
 El servicio nginx puede instalarse en Alpine mediante su sistema de paquetes _apk_.
 
 <pre class="file" data-filename="Dockerfile" data-target="append">
-RUN apk add --no-cache nginx </pre>
+RUN apk add --no-cache nginx 
+RUN mkdir -p /run/nginx </pre>
 
 
 Vamos a incluir una configuración por defecto diferente a la que vienen en el paquete nginx de Alpine, para indicar 
@@ -28,7 +30,7 @@ COPY nginx/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 RUN mkdir -p /usr/share/nginx/html</pre>
 
 
-###Contenido estático 
+### Contenido estático 
 Para incluir el contenido estáticoservir index.html. Puede incluirse en nuestra imagen Docker a través de la directiva COPY, 
 pero las Dockerfile best-practices no lo recomiendan:
 
@@ -78,11 +80,12 @@ Quedando el Dockerfile final de la siguiente manera:
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8
-RUN apk add --no-cache nginx && \
-    mkdir -p /run/nginx
-VOLUME  /usr/share/nginx/html
-EXPOSE 80
 
+RUN apk add --no-cache nginx &&\
+    mkdir -p /usr/share/nginx/html
+COPY nginx/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
+VOLUME /usr/share/nginx/html
+EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 </pre>
 
