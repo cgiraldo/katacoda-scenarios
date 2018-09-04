@@ -31,7 +31,13 @@
         "file": "Dockerfile",
         "target": "~/curl/"
       }
-    ]
+    ],
+     "host01": [
+      {
+        "file": "Dockerfile",
+        "target": "~/curl2/"
+      }
+     ]
    },
   "environment": {
     "uilayout": "editor-terminal",
