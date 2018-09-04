@@ -22,7 +22,7 @@ LABEL maintainer="cgiraldo@gradiant.org"
 LABEL organization="gradiant.org"
 </pre>
 
-`docker inspect curl`{{execute}}          
+`docker image inspect curl`{{execute}}          
 
 El sistema Alpine linux cuenta con el gestor de paquetes _apk_ similar a _apt_ de debian/ubuntu o _yum_ de redhat/centos.
 

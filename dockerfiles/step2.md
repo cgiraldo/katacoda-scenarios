@@ -81,7 +81,8 @@ Quedando el Dockerfile final de la siguiente manera:
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8
 
-RUN apk add --no-cache nginx &&\
+RUN apk add --no-cache nginx && \
+    mkdir -p /run/nginx/ && \
     mkdir -p /usr/share/nginx/html
 COPY nginx/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
 VOLUME /usr/share/nginx/html
@@ -91,7 +92,7 @@ CMD ["nginx", "-g", "daemon off;"]
 
 Para construir la imagen de _ngninx_ indicamos al comando _docker build_ el nuevo contexto
 
-`docker build -t mynginx nginx_context`{{execute}}
+`docker build -t mynginx .`{{execute}}
 
 `docker run -d nginx`{{execute}}
 
