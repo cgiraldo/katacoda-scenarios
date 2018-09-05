@@ -22,14 +22,6 @@
     },
     "finish": {
       "text": "finish.md"
-    },
-    "assets": {
-      "host01": [
-        {
-          "file": "static/index.html",
-          "target": "/tmp/static/"
-        }
-      ]
     }
   },
   "files": [
