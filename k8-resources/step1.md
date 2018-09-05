@@ -9,6 +9,8 @@ metadata:
 
 `kubectl get namespaces`{{execute}}
 
+`kubectl apply -f namespace.yml`{{execute}}
+
 ## K8 pods
 
 
@@ -32,6 +34,8 @@ spec:
     - containerPort: 2000
       hostPort: 2020
 </pre>
+
+`kubectl apply -f pod.yml`{{execute}}
 
 `kubectl get pods -n tutorial`{{execute}}
 
