@@ -1,11 +1,11 @@
-{ "pathwayTitle" : "Docker SkillShare",
-  "title": "Dockerfile",
-  "description": "Creando imágenes Docker de Calidad",
-  "difficulty": "intermediate",
-  "time": "15 minutes",
+{ "pathwayTitle" : "Kubernetes SkillShare",
+  "title": "K8s Resources",
+  "description": "Definición práctica de Recursos de Kubernetes",
+  "difficulty": "Beginner",
+  "time": "10 minutes",
   "details": {
     "steps": [{
-      "title": "Dockerizando un comando",
+      "title": "Kubectl y Dashboard",
       "text": "step1.md"
     },{
       "title": "Dockerizando un servicio",
@@ -43,6 +43,6 @@
     "dashboards": [{"name": "Display port 80", "port": 80}]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "kubernetes-cluster"
   }
 }
