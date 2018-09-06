@@ -10,7 +10,6 @@
     }],
     "intro": {
       "text": "intro.md",
-      "code": "init.sh",
       "credits": "https://www.gradiant.org"
     },
     "finish": {
@@ -28,6 +27,6 @@
     "dashboards": [{"name": "Kubernetes Dashboard", "port": 30000}]
   },
   "backend": {
-    "imageid": "ubuntu"
+    "imageid": "kubernetes"
   }
 }
