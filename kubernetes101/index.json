@@ -1,0 +1,39 @@
+{ "pathwayTitle" : "Kubernetes SkillShare",
+  "title": "K8s Resources",
+  "description": "Definición práctica de Recursos de Kubernetes",
+  "difficulty": "Beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [{
+      "title": "Namespaces and Pods",
+      "text": "step1.md"
+    },{
+      "title": "Deployments and Services",
+      "text": "step2.md"
+    },{
+      "title": "Imagen a partir de código fuente",
+      "text": "step3.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "code": "init.sh",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "files": [
+    "namespace.yml","pod.yml"
+  ],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uisettings": "yaml",
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [{"name": "Display port 80", "port": 80}]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
