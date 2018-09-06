@@ -27,6 +27,6 @@
     "dashboards": [{"name": "Kubernetes Dashboard", "port": 30000}]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "ubuntu"
   }
 }
