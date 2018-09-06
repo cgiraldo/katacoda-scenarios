@@ -28,6 +28,6 @@
     "dashboards": [{"name": "Display port 80", "port": 80}]
   },
   "backend": {
-    "imageid": "kubernetes"
+    "imageid": "ubuntu"
   }
 }
