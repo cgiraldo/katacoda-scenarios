@@ -1,5 +1,5 @@
 { "pathwayTitle" : "Kubernetes SkillShare",
-  "title": "K8s Resources",
+  "title": "Kubernetes 101",
   "description": "Definición práctica de Recursos de Kubernetes",
   "difficulty": "Beginner",
   "time": "10 minutes",
@@ -7,12 +7,6 @@
     "steps": [{
       "title": "Namespaces and Pods",
       "text": "step1.md"
-    },{
-      "title": "Deployments and Services",
-      "text": "step2.md"
-    },{
-      "title": "Imagen a partir de código fuente",
-      "text": "step3.md"
     }],
     "intro": {
       "text": "intro.md",
