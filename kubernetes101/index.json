@@ -25,7 +25,7 @@
     "uisettings": "yaml",
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
     "showdashboard": true,
-    "dashboards": [{"name": "Display port 80", "port": 80}]
+    "dashboards": [{"name": "Kubernetes Dashboard", "port": 30000}]
   },
   "backend": {
     "imageid": "ubuntu"
