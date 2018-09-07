@@ -18,7 +18,7 @@
     }
   },
   "files": [
-    "namespace.yml","pod.yml"
+    "pod.yml", "deployment.yml", "service.yml", "namespace.yml"
   ],
   "environment": {
     "uilayout": "editor-terminal",
