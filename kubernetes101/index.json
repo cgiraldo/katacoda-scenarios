@@ -1,6 +1,6 @@
-{ "pathwayTitle" : "Kubernetes SkillShare",
+{ "pathwayTitle" : "kubernetes",
   "title": "Kubernetes 101",
-  "description": "Definición práctica de Recursos de Kubernetes",
+  "description": "Kubernetes Resource Types",
   "difficulty": "Beginner",
   "time": "10 minutes",
   "details": {

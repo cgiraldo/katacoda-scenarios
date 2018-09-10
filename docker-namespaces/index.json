@@ -1,4 +1,4 @@
-{ "pathwayTitle" : "Docker SkillShare",
+{ "pathwayTitle" : "docker",
   "title": "Container Namespaces",
   "description": "Demonstrating Container namespace isolation",
   "difficulty": "intermediate",
