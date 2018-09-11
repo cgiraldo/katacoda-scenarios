@@ -25,6 +25,10 @@ LABEL maintainer="cgiraldo@gradiant.org"
 LABEL organization="gradiant.org"
 </pre>
 
+Rebuild our docker image! `docker build -t curl .`{{execute}}.
+
+Now It should work. The new curl docker image should be now part of our docker local images. Let's check it:
+ 
 `docker image inspect curl`{{execute}}          
 
 Alpine linux's package manager is `apk`, equivalent to debian/ubuntu `apt` or redhat/centos  `yum`.
