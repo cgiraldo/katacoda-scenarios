@@ -1,10 +1,13 @@
 
-A continuación vamos a dockerizar el comando curl
+We are going to dockerize `curl` command.
 
+For building the docker image we should run `docker build -t curl .`{{execute}}
 
-CONSTRUIR IMAGEN -> `docker build -t curl .`{{execute}}
+For running the curl container we should run `docker run --rm curl`{{execute}}
 
-LANZAR IMAGEN -> `docker run --rm curl`{{execute}}
+Give this commands now a try... It does not work as expected! :/
+
+Don´t worry, we will go back to them after working on our Dockerfile!
 
 ---
 
@@ -24,7 +27,7 @@ LABEL organization="gradiant.org"
 
 `docker image inspect curl`{{execute}}          
 
-El sistema Alpine linux cuenta con el gestor de paquetes _apk_ similar a _apt_ de debian/ubuntu o _yum_ de redhat/centos.
+Alpine linux's package manager is `apk`, equivalent to debian/ubuntu `apt` or redhat/centos  `yum`.
 
 <pre class="file" data-filename="Dockerfile" data-target="append">RUN apk add --no-cache curl
 </pre>
@@ -32,13 +35,19 @@ El sistema Alpine linux cuenta con el gestor de paquetes _apk_ similar a _apt_ d
 Dockerfile Best-Practice
 >The best use for ENTRYPOINT is to set the image’s main command, allowing that image to be run as though it was that command (and then use CMD as the default flags).
 
-Indicamos como entrypoint el binario _curl_ e indicamos que se utilice parámetro --help como parámetro por defecto.
+We set the entrypoint to `curl` and we set `--help` as the default parameter.
 
 <pre class="file" data-filename="Dockerfile" data-target="append">ENTRYPOINT ["curl"]
 CMD ["--help"]
 </pre>
 
+Now It´s time to rebuild our docker image! `docker build -t curl .`{{execute}}
 
-Utilizando curl con parametros personalizados:
+Remember, we can run a curl container with: `docker run --rm curl`{{execute}}
+
+
+Let's use our brand-new curl container  to gather useful information from the web:
 
 `docker run --rm curl -s wttr.in/~"vigo"`{{execute}}
+
+Nice!

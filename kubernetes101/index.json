@@ -1,6 +1,6 @@
 { "pathwayTitle" : "kubernetes",
-  "title": "Kubernetes 101",
-  "description": "Kubernetes Resource Types",
+  "title": "Kubernetes 101 (on-going)",
+  "description": "Kubernetes Management",
   "difficulty": "Beginner",
   "time": "10 minutes",
   "details": {

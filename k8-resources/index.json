@@ -1,6 +1,6 @@
 { "pathwayTitle" : "kubernetes",
-  "title": "K8s Resources",
-  "description": "Definición práctica de Recursos de Kubernetes",
+  "title": "K8s Objects (on-going)",
+  "description": "A Practical way to learn K8s Objects",
   "difficulty": "Beginner",
   "time": "10 minutes",
   "details": {

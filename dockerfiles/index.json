@@ -1,18 +1,18 @@
 { "pathwayTitle" : "docker",
   "title": "Dockerfile",
-  "description": "Creando imágenes Docker de Calidad",
+  "description": "Building Quality Docker Images",
   "difficulty": "intermediate",
   "time": "15 minutes",
   "details": {
     "steps": [{
-      "title": "Dockerizando un comando",
+      "title": "Dockerizing a command",
       "text": "step1.md"
     },{
-      "title": "Dockerizando un servicio",
+      "title": "Dockerizing a service",
       "text": "step2.md",
       "code": "courseStep2.sh"
     },{
-      "title": "Imagen a partir de código fuente",
+      "title": "Dockerizing from source-code",
       "text": "step3.md"
     }],
     "intro": {
