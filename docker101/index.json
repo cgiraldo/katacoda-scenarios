@@ -8,6 +8,10 @@
       "title": "Docker CLI",
       "text": "step1.md"
     }],
+    "steps": [{
+      "title": "Docker Portainer",
+      "text": "step2.md"
+    }],
     "intro": {
       "text": "intro.md",
       "courseData": "courseBase.sh",
@@ -15,8 +19,21 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "vol1/index.html",
+          "target": "/root/vol1/index.html"
+        },
+        {
+          "file": "vol2/index.html",
+          "target": "/root/vol2/index.html"
+        }
+      ]
     }
   },
+
   "environment": {
     "uilayout": "terminal",
     "hideintro": true,
