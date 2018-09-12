@@ -33,7 +33,6 @@
       ]
     }
   },
-
   "environment": {
     "uilayout": "terminal",
     "hideintro": true,
