@@ -23,12 +23,12 @@
     "assets": {
       "host01": [
         {
-          "file": "vol1/index.html",
-          "target": "/root/vol1"
+          "file": "vol_bat/index.html",
+          "target": "/root/vol_bat"
         },
         {
-          "file": "vol2/index.html",
-          "target": "/root/vol2"
+          "file": "vol_spider/index.html",
+          "target": "/root/vol_spider"
         }
       ]
     }
