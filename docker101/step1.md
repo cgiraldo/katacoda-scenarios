@@ -1,6 +1,83 @@
+##Containers
+
+`docker run -ti alpine`{{execute}}
+
+`docker run -d httpd:alpine`{{execute}}
+
+`docker ps`{{execute}}
+
+`docker ps -a`{{execute}}
+
+`docker run -d --name http1 httpd:alpine"`{{execute}}
+
+`docker ps`{{execute}}
+
+`docker exec -ti echo1 /bin/sh`{{execute}}
+
+`docker stop echo1`{{execute}}
+
+`docker ps`{{execute}}
+
+`docker start echo1`{{execute}}
+
+`docker ps`{{execute}}
+
+`docker stop echo1 && docker rm echo1`{{execute}}
+
+`docker ps -aq`{{execute}}
+
+`docker rm -f $(docker ps -aq)`{{execute}}
+
+###Networking
+
+`docker network ls`
+`docker network inspect bridge`
+
+`docker run -d --name echo1 httpd:alpine`{{execute}}
+`docker exec http1 wget -qO- localhost:80`{{execute}}
+`docker inspect http1`{{execute}}
+`docker exec http1 ifconfig`{{execute}}
+
+From other container
+
+(they should be in the same docker network. Default is bridge)
+
+`docker run alpine wget -qO- 172.17.0.2:80`{{execute}}
+`docker run --link http1 alpine wget -qO- echo1:80`{{execute}}
+
+From host
+
+`wget -qO- 172.17.0.2:80`{{execute}}
 
 
+External access
 
-Utilizando curl con parametros personalizados:
+- Port mapping
 
-`docker run --rm curl -s wttr.in/~"vigo"`{{execute}}
+`docker run -d --name http2 -p 8000:80 httpd:alpine`{{execute}}
+`wget -qO- localhost:8000`{{execute}}
+- Host network
+
+`docker run -d --name http3 -net:host httpd:alpine`{{execute}}
+`wget -qO- localhost:80`{{execute}}
+`docker rm -f $(docker ps -aq)`{{execute}}
+-------------------------
+
+###Volumes
+
+docker volume mount
+
+`docker run -d --name http1 -p 8000:80 -v vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+`wget -qO- localhost:8000`{{execute}}
+
+`docker run -it --rm -v vol1:/vol alpine sh -c 'echo "modified content" >/vol/index.html'`{{execute}}
+`docker run -it --rm -v vol1:/vol alpine ls -l /vol`{{execute}}
+`wget -qO- localhost:8000`{{execute}}
+
+`docker rm -f http1`{{execute}}
+`docker run -d --name http1 -p 8000:80 -v vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+`wget -qO- localhost:8000`{{execute}}
+
+host bind mount
+
+`docker run -d --name http1 -p -v "$PWD/vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}

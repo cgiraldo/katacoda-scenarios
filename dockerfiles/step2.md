@@ -1,20 +1,19 @@
-A continuación vamos a dockerizar el servicio nginx.  
+Next we are going to dockerize NGINX service.  
 
-De nuevo comenzamos el Dockerfile a partir de la imagen de referencia de Alpine.
+Again, we set the docker reference image to Alpine Linux.
+
 <pre class="file" data-filename="Dockerfile" data-target="replace">FROM alpine:3.8
 LABEL maintainer="cgiraldo@gradiant.org"
 LABEL organization="gradiant.org"
 </pre>
 
-El servicio nginx puede instalarse en Alpine mediante su sistema de paquetes _apk_.
+The nginx service ca be installed in Alpine withe the `apk` package manager.
 
 <pre class="file" data-filename="Dockerfile" data-target="append">
 RUN apk add --no-cache nginx 
 RUN mkdir -p /run/nginx </pre>
 
-
-Vamos a incluir una configuración por defecto diferente a la que vienen en el paquete nginx de Alpine, para indicar 
-que se servirá contenido estático desde la ruta _/usr/share/nginx/html_.
+We should include a diferent default configuration ti set the path to the static content to _/usr/share/nginx/html_.
 
 COPY
 > Although ADD and COPY are functionally similar, generally speaking, COPY is preferred. That’s because it’s more 
@@ -22,8 +21,8 @@ transparent than ADD. COPY only supports the basic copying of local files into t
 features (like local-only tar extraction and remote URL support) that are not immediately obvious. Consequently, 
 the best use for ADD is local tar file auto-extraction into the image, as in ADD rootfs.tar.xz /.
 
-Esta configuración se encuentra en el fichero nginx.vh.default.conf por lo que utilizamos la instrucción COPY para 
-añadir ficheros del host a la imagen docker que estamos construyendo.
+The new configuration is written in the host file _nginx.vh.default.conf_. We use COPY instruction to add this host file
+to the docker image:
 
 <pre class="file" data-filename="Dockerfile" data-target="append">
 COPY nginx/nginx.vh.default.conf /etc/nginx/conf.d/default.conf
@@ -31,15 +30,16 @@ RUN mkdir -p /usr/share/nginx/html</pre>
 
 
 ### Contenido estático 
-Para incluir el contenido estáticoservir index.html. Puede incluirse en nuestra imagen Docker a través de la directiva COPY, 
-pero las Dockerfile best-practices no lo recomiendan:
+We can also add the static content we want serve (index.html)to serve in the image through the COPY instruction,
+however It is not recommended by the Dockerfile best-practices:
 
 >Create ephemeral containers
 The image defined by your Dockerfile should generate containers that are as ephemeral as possible. By “ephemeral,” 
 we mean that the container can be stopped and destroyed, then rebuilt and replaced with an absolute minimum set up 
 and configuration.
 
-La mejor forma de configurar contenido estático en nuestra imagen es a través de un volumen.
+The best way to configure the static content of our web is through a volume. In such a way all container will use the 
+same docker images and will provide diferent static content through volumes.
 VOLUME
 >The VOLUME instruction should be used to expose any database storage area, configuration storage, or files/folders 
 created by your docker container. You are strongly encouraged to use VOLUME for any mutable and/or user-serviceable 
@@ -68,15 +68,15 @@ almost always be used in the form of CMD [“executable”, “param1”, “par
 CMD ["nginx", "-g", "daemon off;"]
 </pre>
 
-Cada instrucción RUN, COPY y ADD añade una capa a la imagen de docker. 
-Podemos seguir las siguientes dos recomendaciones
+Every RUN, COPY and ADD instruction add a new ufs layer to the docker image. 
+We will apply these best-practices:
 
 >Minimize the number of layers
 
 >Split long or complex RUN statements on multiple lines separated with backslashes to make your Dockerfile more
  readable, understandable, and maintainable.
 
-Quedando el Dockerfile final de la siguiente manera:
+So our final Dockerfile is as follows:
 
 <pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8
@@ -90,9 +90,11 @@ EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
 </pre>
 
-Para construir la imagen de _ngninx_ indicamos al comando _docker build_ el nuevo contexto
+Now It is time to build our _nginx_ docker image:
 
 `docker build -t mynginx .`{{execute}}
+
+And running the nginx container to serve content from the _static/_ host path.
 
 `docker run -d -v /root/static/:/usr/share/nginx/html/ -p 80:80 mynginx`{{execute}}
 

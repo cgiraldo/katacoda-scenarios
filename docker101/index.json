@@ -19,6 +19,7 @@
   },
   "environment": {
     "uilayout": "terminal",
+    "hideintro": true,
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
     "showdashboard": true,
     "dashboards": [{"name": "Portainer", "port": 9000}]

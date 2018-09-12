@@ -1,33 +1,97 @@
-Alpine linux se basa en musl libc y busybox. musl y glibc son dos implementaciones de la librería "libc". Puede que 
+Finally we are going to dockerize a software from source code
+.  
 
-ENVSUBST
+Again, we set the docker reference image to Alpine Linux.
 
-JINJA
+<pre class="file" data-filename="Dockerfile" data-target="replace">FROM alpine:3.8
+LABEL maintainer="cgiraldo@gradiant.org"
+LABEL organization="gradiant.org"
+</pre>
 
+We must set instructions to:
+ 
+Get build tools and build dependencies:
+
+<pre class="file" data-filename="Dockerfile" data-target="append">
+ENV SQUID_VERSION=3.5.28
+
+RUN apk add --no-cache bash \
+                     build-base \
+                     curl \
+                     libnetfilter_conntrack \
+                     libnfnetlink-dev \
+                     linux-headers \
+                     openssl openssl-dev \
+                     perl</pre>
+                     
+Get the source code:
+<pre class="file" data-filename="Dockerfile" data-target="append">
+RUN mkdir -p /opt && cd /opt && curl http://www.squid-cache.org/Versions/v3/3.5/squid-$SQUID_VERSION.tar.gz | tar -xvz
+RUN adduser squid squid
+</pre>
+And build the software:
+<pre class="file" data-filename="Dockerfile" data-target="append">
+RUN cd /opt/squid-$SQUID_VERSION && ./configure --prefix=/usr/local/squid --with-openssl
+RUN cd /opt/squid-$SQUID_VERSION && make
+RUN cd /opt/squid-$SQUID_VERSION && make install
+<pre>
+
+Then add a custom entrypoint.sh initialize cache if not already done and launch squid in foreground.
+<pre class="file" data-filename="Dockerfile" data-target="append">
+COPY start_squid.sh /usr/local/squid/bin/start_squid.sh
+RUN cd /usr/local/ && tar -cvzf /squid-bin.tgz .
+VOLUME ["/usr/local/squid/var"]
+EXPOSE 3128
+ENTRYPOINT ["/usr/local/squid/bin/start_squid.sh"]
+CMD ["-d 8"]
+</pre>
+
+Wow, that's a lot of instructions, layers and non-useful files to run squid (build-tools etc.)
+Let's follow the next best-practice recommendation:
+
+>Multi-stage builds (in Docker 17.05 or higher) allow you to drastically reduce the size of your final image,
+ without struggling to reduce the number of intermediate layers and files.
+
+<pre class="file" data-filename="Dockerfile" data-target="replace">
 FROM alpine:3.8 as builder
 
-MAINTAINER cgiraldo
-ENV SQUID_VERSION=3.5.20
-RUN apk --update add curl build-base perl openssl openssl-dev libnetfilter_conntrack libnfnetlink-dev linux-headers bash
-RUN mkdir -p /opt && cd /opt && curl http://www.squid-cache.org/Versions/v3/3.5/squid-$SQUID_VERSION.tar.gz | tar -xvz && adduser squid squid && \
-    cd /opt/squid-$SQUID_VERSION && ./configure --prefix=/usr/local/squid \
-#                                        --enable-icap-client \
-#                                        --enable-loadable-modules \
-#                                        --with-openssl \
-#                                        --enable-ssl-crtd \
-#                                        --enable-silent-rules \
-#                                        --enable-dependency-tracking \
-#                                        --enable-icmp \
-#                                        --enable-delay-pools \
-#                                        --enable-useragent-log \
-#                                        --enable-esi \
-#                                        --enable-follow-x-forwarded-for \
-#                                        --enable-linux-netfilter \
-#                                        --enable-auth PKG_CONFIG_PATH=/usr/local/lib/pkgconfig && \
-    make && make install && apk del curl perl && rm -r /opt/squid-*
+LABEL maintainer="cgiraldo@gradiant.org"
+LABEL organization="gradiant.org"
+
+ENV SQUID_VERSION=3.5.28
+
+RUN apk add --no-cache bash \
+                     build-base \
+                     curl \
+                     libnetfilter_conntrack \
+                     libnfnetlink-dev \
+                     linux-headers \
+                     openssl openssl-dev \
+                     perl
+RUN mkdir -p /opt && cd /opt && curl http://www.squid-cache.org/Versions/v3/3.5/squid-$SQUID_VERSION.tar.gz | tar -xvz
+RUN adduser squid squid
+RUN cd /opt/squid-$SQUID_VERSION && ./configure --prefix=/usr/local/squid --with-openssl
+
+RUN cd /opt/squid-$SQUID_VERSION && make
+RUN cd /opt/squid-$SQUID_VERSION && make install
+COPY start_squid.sh /usr/local/squid/bin/start_squid.sh
+RUN cd /usr/local/ && tar -cvzf /squid-bin.tgz .
+
+FROM  alpine:3.8
+LABEL maintainer="cgiraldo@gradiant.org"
+LABEL organization="gradiant.org"
+
+ENV SQUID_VERSION=3.5.28
+
+COPY --from=builder /squid-bin.tgz /usr/local/
+RUN apk add --no-cache libstdc++ openssl && \
+    cd /usr/local && tar -xvzf squid-bin.tgz
 
 VOLUME ["/usr/local/squid/var"]
+EXPOSE 3128
 
-COPY start_squid.sh /usr/local/bin/start_squid.sh
+ENTRYPOINT ["/usr/local/squid/bin/start_squid.sh"]
+CMD ["-d 8"]
+</pre>
 
-ENTRYPOINT ["/usr/local/bin/start_squid.sh"]
+Our final image now is two-layer and It only has squid binaries and running dependencies!

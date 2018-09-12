@@ -1,11 +1,7 @@
-Para poder ejecutar contenedores docker, el usuario necesita disponer de la imagen docker correspondiente 
-al servicio que quiera lanzar.
+Docker Images are one of the main components of Docker.
 
-Las imagenes docker incluyen los binarios y/o ficheros de apoyo necesarios para el servicio y unas instrucciones 
-por defecto de como lanzarlo.
- 
-El repositorio publico de imágenes docker que se utiliza por defecto es dockerhub y pueden 
-explorarse las imagenes disponibles en [hub.docker.com](hub.docker.com).
+Images are composed of layers with files and binaries and information about the main process to run, exposed ports, etc.
 
-En este curso daremos unas nociones básicas para crear imágenes docker de calidad, donde se pretende minimizar el tamaño 
-de imagen manteniendo los convenios establecidos por la comunidad.   
+ The main public docker image repository is dockerhub [hub.docker.com](hub.docker.com), where you can explore available images (official and community).
+
+This scenario provides basic notions to build first-class docker images, with a small footprint and following the best-practices.
