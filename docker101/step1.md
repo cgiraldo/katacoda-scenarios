@@ -8,7 +8,7 @@
 
 `docker ps -a`{{execute}}
 
-`docker run -d --name http1 httpd:alpine"`{{execute}}
+`docker run -d --name http1 httpd:alpine`{{execute}}
 
 `docker ps`{{execute}}
 
@@ -28,7 +28,7 @@
 
 `docker rm -f $(docker ps -aq)`{{execute}}
 
-###Networking
+### Networking
 
 `docker network ls`
 `docker network inspect bridge`
@@ -56,28 +56,37 @@ External access
 
 `docker run -d --name http2 -p 8000:80 httpd:alpine`{{execute}}
 `wget -qO- localhost:8000`{{execute}}
+
 - Host network
 
 `docker run -d --name http3 -net:host httpd:alpine`{{execute}}
+
 `wget -qO- localhost:80`{{execute}}
+
 `docker rm -f $(docker ps -aq)`{{execute}}
+
 -------------------------
 
-###Volumes
+### Volumes
 
 docker volume mount
 
 `docker run -d --name http1 -p 8000:80 -v vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+
 `wget -qO- localhost:8000`{{execute}}
 
 `docker run -it --rm -v vol1:/vol alpine sh -c 'echo "modified content" >/vol/index.html'`{{execute}}
+
 `docker run -it --rm -v vol1:/vol alpine ls -l /vol`{{execute}}
+
 `wget -qO- localhost:8000`{{execute}}
 
 `docker rm -f http1`{{execute}}
+
 `docker run -d --name http1 -p 8000:80 -v vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+
 `wget -qO- localhost:8000`{{execute}}
 
 host bind mount
 
-`docker run -d --name http1 -p -v "$PWD/vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+`docker run -d --name http_host1 -p 8001:80 -v $PWD/vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}

@@ -24,11 +24,11 @@
       "host01": [
         {
           "file": "vol1/index.html",
-          "target": "/tmp/index.html"
+          "target": "/root/vol1"
         },
         {
           "file": "vol2/index.html",
-          "target": "/tmp/index2.html"
+          "target": "/root/vol2"
         }
       ]
     }
