@@ -2,6 +2,8 @@
 
 `docker run -ti alpine`{{execute}}
 
+`exit`{{execute}}
+
 `docker run -d httpd:alpine`{{execute}}
 
 `docker ps`{{execute}}
@@ -13,6 +15,8 @@
 `docker ps`{{execute}}
 
 `docker exec -ti http1 /bin/sh`{{execute}}
+
+`exit`{{execute}}
 
 `docker stop http1`{{execute}}
 
@@ -31,15 +35,16 @@
 ### Networking
 
 `docker network ls`{{execute}}
+
 `docker network inspect bridge`{{execute}}
 
 `docker run -d --name http1 httpd:alpine`{{execute}}
 
-`docker exec http1 wget -qO- localhost:80`{{execute}}
+`docker exec -ti http1 wget -qO- localhost:80`{{execute}}
 
 `docker inspect http1`{{execute}}
 
-`docker exec http1 ifconfig`{{execute}}
+`docker exec -ti http1 ifconfig`{{execute}}
 
 #### From other container
 
