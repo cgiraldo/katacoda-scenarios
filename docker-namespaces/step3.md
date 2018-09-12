@@ -1,38 +1,40 @@
-En este paso comprobamos que por defecto existe un aislamiento en la red de cada contenedor.
+We are going to check network isolation among containers through Linux Network Namespaces.
 
-- Comprobamos la IP y la MAC del contenedor T2 `ifconfig`{{execute T2}}
+- We check IP and MAC of t2 container -> `ifconfig`{{execute T2}}
 
-- Comprobamos la IP y la MAC del contenedor T3 `ifconfig`{{execute T3}}
+- We check IP and MAC of t3 container -> `ifconfig`{{execute T3}}
 
-- Comprobamos la IP y la MAC del HOST `ifconfig`{{execute T1}}
+- We check IP and MAC of host machine -> `ifconfig`{{execute T1}}
 
 
 ***
+It is possible to share the Network Namespace between two or more containers:
 
-Es posible compartir el Network Namespace de dos contenedores.
-Recreamos ahora el contenedor T4 compartiendo el Network Namespace con el contenedor T2.
+We recreate now t4 container but sharing Network Namespace with t2 container.
+
 
 - `docker rm -f t4`{{execute T1}}
 
 - `docker run -ti --rm --name t4 --net=container:t2 alpine`{{execute T4}}
 
-- Comprobamos la IP y la MAC del contenedor T4 `ifconfig`{{execute T4}}
+- We check IP and MAC of t4 container -> `ifconfig`{{execute T4}}
 
 
 
 ***
 
-Es posible incluso no aislar la pila de red del contenedor y que comparta el Network Namespace del Host.
-Recreamos el contenedor T5 con esa configuración.
+It is even possible to deploy a container sharing the network namespace of the host machine.
+
+We recreate t5 container with this configuration:
 
 - `docker rm -f t5`{{execute T1}}
 
 - `docker run -ti --rm --name t5 --net=host alpine`{{execute T5}}
 
-- Comprobamos la IP y la MAC del contenedor T5 `ifconfig`{{execute T5}}
+- We check IP and MAC of t5 container -> `ifconfig`{{execute T5}}
 
-Sin embargo podemos comprobar el el ailamiento de PID Namespace se mantiene ahora en el T5.
+On the other hand, we can check that we keep PID Namespace isolation at containter t5:
 
-- Lista de procesos de T5 `ps`{{execute T5}}
+- Process list at t5 container -> `ps`{{execute T5}}
 
 ***

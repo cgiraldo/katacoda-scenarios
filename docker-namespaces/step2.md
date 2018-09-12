@@ -1,46 +1,47 @@
+We are going to check process ID isolation between containers through the use of PID namespaces.
 
+- We execute process _top_ in t2 container -> `top &`{{execute T2}}
 
-## PID Namespaces
-En este paso comprobamos que por defecto existe un aislamiento en los procesos lanzados en cada contenedor
+- We execute process _sum_ in t3 container -> `sum &`{{execute T3}}
 
-- Lanzamos proceso _top_ en T2 `top &`{{execute T2}}
+- Process list at t2 container -> `ps`{{execute T2}}
 
-- Lanzamos proceso _sum_ en T3 `sum &`{{execute T3}}
+- Process list at t3 container -> `ps`{{execute T3}}
 
-- Lista de procesos de T2 `ps`{{execute T2}}
-
-- Lista de procesos de T3 `ps`{{execute T3}}
-
-- Lista de procesos en el HOST `ps`{{execute T1}}
+- Process list at host machine -> `ps`{{execute T1}}
 
 
 ***
 
-Es posible compartir el PID Namespace de dos contenedores. Lanzamos ahora el contenedor T4 compartiendo el PID Namespace con el contenedor T2.
+We can share PID Namespace between two containers.
+
+We deploy now container t4 sharing the PID Namespace with container t2:
 
 - `docker run -ti --rm --name t4 --pid=container:t2 alpine`{{execute T4}}
 
-- Lanzamos proceso _wc_ en T4 `wc &`{{execute T4}}
+- We execute process _wc_ in t4 container -> `wc &`{{execute T4}}
 
-- Lista de procesos de T4 `ps`{{execute T4}}
+- Process list at t4 container -> `ps`{{execute T4}}
 
-- Lista de procesos de T2 `ps`{{execute T2}}
+- Process list at t2 container -> `ps`{{execute T2}}
 
-- Lista de procesos en el HOST `ps`{{execute T1}}
+- Process list at host machine -> `ps`{{execute T1}}
 
 ***
-
-Es posible incluso no aislar los PIDs del contenedor y que comparta el PID Namespace del Host
+It is even possible to not isolate PIDs at the container and share the PID Namespace of the host machine. 
 
 - `docker run -ti --rm --name t5 --pid=host alpine`{{execute T5}}
 
-- Lanzamos proceso _dc_ en T5 `dc &`{{execute T5}}
+- We execute process _dc_ in T5 container -> `dc &`{{execute T5}}
 
-- Lista de procesos de T5 `ps`{{execute T5}}
+- Process list at host machine -> `ps`{{execute T1}}
 
-El comando `ps` de alpine-linux es el de busybox y lista todos los procesos por defecto. Instalamos el comando ps propio de linux Para listar sólo los procesos con tty utilizaremos el comando ps del paquete los procesos no 
+- Process list at t5 container -> `ps`{{execute T5}}
 
-- Lista de procesos del host `ps`{{execute T1}}
+Alpine-linux's default `ps` command is from busybox and list all processes by default.
+To install typical `ps` command -> `apk add --no-cache ps`{{execute T5}}. This ps command only list processes with a tty by default. 
+
+
 
 
 

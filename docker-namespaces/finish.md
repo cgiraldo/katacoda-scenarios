@@ -1,1 +1,1 @@
-¡Ahora conoces el funcionamiento de los distintos namespaces de los contenedores Docker!
+Now you know how docker use Linux Namespaces to isolate containers!

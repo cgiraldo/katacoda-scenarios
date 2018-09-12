@@ -12,17 +12,17 @@
 
 `docker ps`{{execute}}
 
-`docker exec -ti echo1 /bin/sh`{{execute}}
+`docker exec -ti http1 /bin/sh`{{execute}}
 
-`docker stop echo1`{{execute}}
-
-`docker ps`{{execute}}
-
-`docker start echo1`{{execute}}
+`docker stop http1`{{execute}}
 
 `docker ps`{{execute}}
 
-`docker stop echo1 && docker rm echo1`{{execute}}
+`docker start http1`{{execute}}
+
+`docker ps`{{execute}}
+
+`docker stop http1 && docker rm http1`{{execute}}
 
 `docker ps -aq`{{execute}}
 
@@ -30,27 +30,33 @@
 
 ### Networking
 
-`docker network ls`
-`docker network inspect bridge`
+`docker network ls`{{execute}}
+`docker network inspect bridge`{{execute}}
 
-`docker run -d --name echo1 httpd:alpine`{{execute}}
+`docker run -d --name http1 httpd:alpine`{{execute}}
+
 `docker exec http1 wget -qO- localhost:80`{{execute}}
+
 `docker inspect http1`{{execute}}
+
 `docker exec http1 ifconfig`{{execute}}
 
-From other container
+#### From other container
 
 (they should be in the same docker network. Default is bridge)
 
-`docker run alpine wget -qO- 172.17.0.2:80`{{execute}}
-`docker run --link http1 alpine wget -qO- echo1:80`{{execute}}
+`docker run -ti alpine wget -qO- 172.18.0.3:80`{{execute}}
 
-From host
+`docker run -ti --link http1 alpine wget -qO- http1:80`{{execute}}
 
-`wget -qO- 172.17.0.2:80`{{execute}}
+`docker run -ti --link http1:server alpine wget -qO- server:80`{{execute}}
+
+#### From host
+
+`wget -qO- 172.18.0.3:80`{{execute}}
 
 
-External access
+#### External access
 
 - Port mapping
 

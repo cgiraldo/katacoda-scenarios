@@ -1,7 +1,8 @@
-La tecnología de contenedores hace uso de Linux Namespaces para aislar ("conteneirizar") procesos/servicios.
-Esto permite instalar y ejecutar múltiples servicios en un mismo Host sin que exista visibilidad entre ellos. 
+Docker relies on Linux Namespaces to isolate processes in containers.
 
-La definición de Linux namespace del Manual (RTFM):
+With Docker you can install and execute multiple services in the same host but without visibility among them.
+
+Linux Namespaces definition from the Linux Man Pages (RTFM):
 
 
 ```
@@ -17,7 +18,7 @@ DESCRIPTION
 
 ```
 
-Este aislamiento se produce en los siguientes niveles:
+This isolation can be at the next levels:
 - User Namespace.
 - Unix Time-Sharing Namespace.
 - IPC Namespace.

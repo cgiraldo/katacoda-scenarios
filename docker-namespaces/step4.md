@@ -1,77 +1,93 @@
-En este paso comprobamos que por defecto existe un aislamiento en el sistema de ficheros de cada contenedor.
+We are going to check filesystem isolation among containers through Mount Namespaces.
 
-- Creamos el fichero _gatito2.txt_ en el contenedor T2 `touch /gatito2.txt`{{execute T2}}
+- We create _kitten2.txt_ file in t2 container -> `touch /kitten2.txt`{{execute T2}}
 
-- Creamos el fichero _gatito3.txt_ en el contenedor T3 `touch /gatito3.txt`{{execute T3}}
+- We create _kitten3.txt_ file in t3 container -> `touch /kitten3.txt`{{execute T3}}
 
-- Comprobamos los ficheros de T2 `ls`{{execute T2}} y de T3 `ls`{{execute T3}}
+- We list files of t2 container -> `ls`{{execute T2}} and files of t3 container -> `ls`{{execute T3}}
 
-- Buscamos estos ficheros en el HOST `find / -name gatito\*.txt`{{execute T1}}
+- We search for kitten files at host machine -> `find / -name kitten\*.txt`{{execute T1}}
 
 
 ***
-Los ficheros creados en un contenedor desaparecen cuando el contenedor se elimina del HOST.
+Files created at the R/W layer of a container disappear when container is removed.
 
-- Eliminamos los contenedores T2 y T3 `docker rm -f t2 t3`{{execute T1}}
+- Let's remove t2 and t3 containers -> `docker rm -f t2 t3`{{execute T1}}
 
-- Buscamos estos ficheros en el HOST `find / -name gatito\*.txt`{{execute T1}}
+- We search for kitten files at host machine -> `find / -name kitten\*.txt`{{execute T1}}
 
-Para que los ficheros sobrevivan a los contenedores pueden utilizarse _Docker Volumes_ o _Bind Mounts_
+To remove files from container life cycle and let thhem survive a container removal, we must use _Docker Volumes_ or _Bind Mounts_.
 
 ## Volumes
 
-Los volumenes se almacenan en una parte del sistema de ficheros del host que gestiona docker (/var/lib/docker/volumes).
-Pueden crearse de manera explícita o ser creados por docker al crear un contenedor.
+Volumes  are stored in a part of the host filesystem which is managed by Docker (_/var/lib/docker/volumes/_ on Linux). 
+Non-Docker processes should not modify this part of the filesystem. Volumes are the best way to persist data in Docker.
+
+A docker volume can be explicitly created with `docker volume create`.
+
+`docker volume create datavol`{{execute T1}}
+
+`docker volume ls`{{execute T1}}
+
+To attach a volume to a container you must do it at deploy time with the `-v` flag. 
+If container does not exist, docker automatically creates one. 
+Volumes can be shared between containers running at the same host. 
+
+Let's deploy container t2 and container t3 with the shared volume _data_vol_.
 
 `docker run -ti --rm --name t2 -v datavol:/data alpine`{{execute T2}}
 
 `docker run -ti --rm --name t3 -v datavol:/data alpine`{{execute T3}}
 
-Creamos un fichero en el contenedor T2 `touch /data/t2_other.txt`{{execute T2}}
+If we create a file at t2 container -> `touch /data/another_kitten.txt`{{execute T2}}
 
-Listamos los ficheros de /data en el contenedor T3 `ls /data/`{{execute T3}}
+We can see it at t3 container -> `ls /data/`{{execute T3}}
 
-Eliminamos los contenedores, el volumen debe persistir:
+If we remove the containers, the volume must persist:
 
 - `docker rm -f t2 t3`{{execute T1}}
 
 - `docker volume ls`{{execute T1}}
 
-Podemos ejecutar un nuevo contenedor T4 y montar el volumen anterior:
+We can execute a new t4 container with the previous volume. 
+_another_kitten.txt_ file should be accessible at t4 container.
 
 - `docker run -ti --rm --name t4 -v datavol:/data alpine`{{execute T4}}
 
-Listamos los ficheros de /data en el contenedor T4 `ls /data/`{{execute T4}}
+- We list t4 /data contents -> `ls /data/`{{execute T4}}
 
 ## Bind Mounts
 
-Los _Bind Mounts_ tienen una funcionalidad limitada en comparación con los _Docker Volumes_. 
-Este tipo de montajes utilizan archivos o directorios del HOST montados en el contenedor.
-Vamos a crear la carpeta /mnt/shared_DATA en el host y la montaremos en la ruta /data del contenedor T2 y T3.
+Bind mounts have limited functionality compared to volumes. 
+When you use a bind mount, a file or directory on the host machine is mounted into a container. 
+The file or directory is referenced by its full path on the host machine. 
+The file or directory does not need to exist on the Docker host already. 
+It is created on demand if it does not yet exist.
 
-Lanzamos los contenedores t2 y t3 compartiendo la carpeta del host /mnt/shared_DATA
+Let's mount the _/mnt/shared_DATA_ host machine path into the _/data_ mount point of t2 and t3 containers. 
+
 
 -`docker run -ti --rm --name t2 -v /mnt/shared_DATA:/data alpine`{{execute T2}}
 
 -`docker run -ti --rm --name t3 -v /mnt/shared_DATA:/data alpine`{{execute T3}}
 
-Creamos un fichero en el contenedor T2 `touch /data/t2_file.txt`{{execute T2}}
+If we create a file at t2 container -> `touch /data/puppy.txt`{{execute T2}}
 
-Listamos los ficheros de /data en el contenedor T3 `ls /data/`{{execute T3}}
+We can see it at t3 container -> `ls /data/`{{execute T3}}
 
-Al eliminar los contenedores, el contenido de la carpeta del host /mnt/shared_DATA se mantiene:
+f we remove the containers, the content of the host path _/mnt/shared_DATA persists:
 
 - `docker rm -f t2 t3`{{execute T1}}
 
 - `ls /mnt/shared_DATA`{{execute T1}}
 
 ***
-Al igual que las carpetas, docker puede montar ficheros individuales del host de la misma manera:
+The same way as folders, docker can mount individual host files to containers:
 
-Creamos un fichero en el host `echo "important config value" > /tmp/config.txt`{{execute T1}}
+Let's create a configuration file at the host machine -> `echo "important config value" > /tmp/config.txt`{{execute T1}}
 
-Lanzamos el contenedor t2 compartiendo el fichero del host /tmp/config.txt
+We deploy t2 container and we bind mount the previous file.
 
 -`docker run -ti --rm --name t2 -v /tmp/config.txt:/data/config.txt alpine`{{execute T2}}
 
-Comprobamos el fichero montado en el contenedor T2 `cat /data/config.txt`{{execute T2}}
+Let's check the content of _data/config.txt_ file of t2 container `cat /data/config.txt`{{execute T2}}
