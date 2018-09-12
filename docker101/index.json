@@ -7,8 +7,8 @@
     "steps": [{
       "title": "Docker CLI",
       "text": "step1.md"
-    }],
-    "steps": [{
+    },
+      {
       "title": "Docker Portainer",
       "text": "step2.md"
     }],
