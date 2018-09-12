@@ -89,4 +89,10 @@ docker volume mount
 
 host bind mount
 
-`docker run -d --name http_host1 -p 8001:80 -v $PWD/vol1:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+`docker run -d --name http_spider -p 8001:80 -v $PWD/vol_spider:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+
+`wget -qO- localhost:8001`{{execute}}
+
+`docker run -d --name http_bat -p 8002:80 -v $PWD/vol_bat:/usr/local/apache2/htdocs/ httpd:alpine`{{execute}}
+
+`wget -qO- localhost:8002`{{execute}}
