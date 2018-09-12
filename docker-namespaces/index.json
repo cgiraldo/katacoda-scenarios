@@ -1,6 +1,6 @@
 { "pathwayTitle" : "docker",
   "title": "Container Namespaces",
-  "description": "Demonstrating Container namespace isolation",
+  "description": "Demonstrating Container Namespace Isolation",
   "difficulty": "intermediate",
   "time": "15 minutes",
   "details": {

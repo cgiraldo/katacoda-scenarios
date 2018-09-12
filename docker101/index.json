@@ -1,6 +1,6 @@
 { "pathwayTitle" : "docker",
   "title": "Docker 101",
-  "description": "Docker basics",
+  "description": "Docker Basics",
   "difficulty": "beginner",
   "time": "10 minutes",
   "details": {

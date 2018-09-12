@@ -1,6 +1,6 @@
 { "pathwayTitle" : "docker",
   "title": "Dockerfile",
-  "description": "Building Quality Docker Images",
+  "description": "Building First-Class Docker Images",
   "difficulty": "intermediate",
   "time": "15 minutes",
   "details": {
