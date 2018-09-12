@@ -24,7 +24,7 @@
       "host01": [
         {
           "file": "vol1/index.html",
-          "target": "/root/vol1/index.html"
+          "target": "/root/index.html"
         },
         {
           "file": "vol2/index.html",
