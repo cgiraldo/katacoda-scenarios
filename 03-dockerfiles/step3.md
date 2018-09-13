@@ -29,14 +29,17 @@ Get the source code:
 RUN mkdir -p /opt && cd /opt && curl http://www.squid-cache.org/Versions/v3/3.5/squid-$SQUID_VERSION.tar.gz | tar -xvz
 RUN adduser squid squid
 </pre>
+
 And build the software:
+
 <pre class="file" data-filename="Dockerfile" data-target="append">
 RUN cd /opt/squid-$SQUID_VERSION && ./configure --prefix=/usr/local/squid --with-openssl
 RUN cd /opt/squid-$SQUID_VERSION && make
 RUN cd /opt/squid-$SQUID_VERSION && make install
-<pre>
+</pre>
 
 Then add a custom entrypoint.sh initialize cache if not already done and launch squid in foreground.
+
 <pre class="file" data-filename="Dockerfile" data-target="append">
 COPY start_squid.sh /usr/local/squid/bin/start_squid.sh
 RUN cd /usr/local/ && tar -cvzf /squid-bin.tgz .
@@ -95,3 +98,11 @@ CMD ["-d 8"]
 </pre>
 
 Our final image now is two-layer and It only has squid binaries and running dependencies!
+ 
+`build -t squid .`{{execute}}
+
+You can try to build the image, but you must be patient. 
+The first stage that compiles from source take a lot of time!
+
+Another advantage of multistage Dockerfiles is that take advantage of layer cache.
+You don't need to rebuild the first stage (here is compiling sources) if you modify instructions of the next stages.
