@@ -104,5 +104,5 @@ Our final image now is two-layer and It only has squid binaries and running depe
 You can try to build the image, but you must be patient. 
 The first stage that compiles from source take a lot of time!
 
-Another advantage of multistage Dockerfiles is that take advantage of layer cache.
+Another advantage of multistage Dockerfiles is that take advantage of caching layers.
 You don't need to rebuild the first stage (here is compiling sources) if you modify instructions of the next stages.
