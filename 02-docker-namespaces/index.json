@@ -5,7 +5,7 @@
   "time": "15 minutes",
   "details": {
     "steps": [{
-      "title": "Creación del entorno de pruebas",
+      "title": "Environment Creation",
       "text": "step1.md"
     },{
       "title": "PID Namespace",
