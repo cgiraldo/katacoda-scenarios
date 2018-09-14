@@ -50,7 +50,7 @@
 
 (they should be in the same docker network. Default is bridge)
 
-`docker run -ti alpine wget -qO- 172.18.0.3:80`{{execute}}
+`docker run -ti alpine wget -qO- 172.18.0.2:80`{{execute}}
 
 `docker run -ti --link http1 alpine wget -qO- http1:80`{{execute}}
 
@@ -58,7 +58,7 @@
 
 #### From host
 
-`wget -qO- 172.18.0.3:80`{{execute}}
+`wget -qO- 172.18.0.2:80`{{execute}}
 
 
 #### External access
@@ -70,7 +70,7 @@
 
 - Host network
 
-`docker run -d --name http3 -net:host httpd:alpine`{{execute}}
+`docker run -d --name http3 --network host httpd:alpine`{{execute}}
 
 `wget -qO- localhost:80`{{execute}}
 
