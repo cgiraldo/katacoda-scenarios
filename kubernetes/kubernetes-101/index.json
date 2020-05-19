@@ -22,8 +22,8 @@
     "assets": {
       "host01": [
         {
-          "file": "manifests/simple-pod.yaml",
-          "target": "/tmp/manifests/"
+          "file": "test",
+          "target": "/tmp"
         }
       ]
     }
