@@ -1,1 +1,0 @@
-Now you know how docker use Linux Namespaces to isolate containers!
