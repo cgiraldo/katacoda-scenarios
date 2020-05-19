@@ -24,6 +24,10 @@
         {
           "file": "manifests/simple-pod.yaml",
           "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/simple-deployment.yaml",
+          "target": "/root/manifests"
         }
       ]
     }

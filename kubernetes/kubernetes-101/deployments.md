@@ -19,7 +19,7 @@ Abrimos la declaración del deployment:
 
 para aplicar esta declaración en nuestro cluster de kubernetes:
 
-`kubernetes apply -f manifests/simple-deployment.yaml`{{execute}}
+`kubectl apply -f manifests/simple-deployment.yaml`{{execute}}
 
 `kubectl get deployments`{{execute}}
 
