@@ -25,5 +25,14 @@ para aplicar esta declaración en nuestro cluster de kubernetes:
 
 `kubectl get pods`{{execute}}
 
+Podemos escalar el despliegue para que mantenga 2 instancias con:
+
+`kubectl scale --replicas=2 deployment simple-deployment`{{execute}}
+
+También podemos modificar el manifiesto y aplicarlo de nuevo.
+Edita el fichero para incluir 4 replicas y aplicalo con:
+
+`kubectl apply -f manifests/simple-deployment.yaml`{{execute}} 
+
 
 Consulta todos los detalles sobre deployments en la [documentación oficial de kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).

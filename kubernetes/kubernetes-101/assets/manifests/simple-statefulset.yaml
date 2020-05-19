@@ -1,18 +1,19 @@
 apiVersion: apps/v1
-kind: Deployment
+kind: StatefulSet
 metadata:
-  name: simple-deployment
+  name: simple-statefulset
   labels:
     app: simple
 spec:
+  serviceName: simple-svc
   replicas: 3
   selector:
     matchLabels:
-      app: simple-deployment
+      app: simple-stateful
   template:
     metadata:
       labels:
-        app: simple-deployment
+        app: simple-stateful
     spec:
       containers:
       - name: myapp-container
