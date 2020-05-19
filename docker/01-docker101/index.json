@@ -1,0 +1,45 @@
+{ "pathwayTitle" : "docker",
+  "title": "Docker 101",
+  "description": "Docker Basics",
+  "difficulty": "beginner",
+  "time": "10 minutes",
+  "details": {
+    "steps": [{
+      "title": "Docker CLI",
+      "text": "step1.md"
+    },
+      {
+      "title": "Docker Portainer",
+      "text": "step2.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "courseData.sh",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "vol_bat/index.html",
+          "target": "/root/vol_bat"
+        },
+        {
+          "file": "vol_spider/index.html",
+          "target": "/root/vol_spider"
+        }
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "hideintro": true,
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
+    "showdashboard": true
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

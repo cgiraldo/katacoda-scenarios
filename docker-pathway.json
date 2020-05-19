@@ -1,0 +1,20 @@
+{
+    "title": "docker",
+    "description": "Docker tutorials.",
+    "icon": "fa-katacoda",
+    "courses": [
+      {
+        "course_id": "01-docker101",
+        "title": " Introduction to docker",
+        "description": ""
+      },
+      {
+        "course_id": "02-docker-namespaces",
+        "title": "Docker Namespaces"
+      },
+      {
+        "course_id": "03-dockerfiles",
+        "title": "Dockerfile"
+      }
+    ]
+}

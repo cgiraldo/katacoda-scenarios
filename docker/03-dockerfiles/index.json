@@ -1,0 +1,52 @@
+{ "pathwayTitle" : "docker",
+  "title": "Dockerfile",
+  "description": "Building First-Class Docker Images",
+  "difficulty": "intermediate",
+  "time": "15 minutes",
+  "details": {
+    "steps": [{
+      "title": "Dockerizing a command",
+      "text": "step1.md"
+    },{
+      "title": "Dockerizing a service",
+      "text": "step2.md",
+      "code": "courseStep2.sh"
+    },{
+      "title": "Dockerizing from source-code",
+      "text": "step3.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "courseData": "courseBase.sh",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {
+          "file": "nginx/nginx.vh.default.conf",
+          "target": "/tmp/nginx/"
+        },
+        {
+          "file": "static/index.html",
+          "target": "/tmp/static/"
+        }
+      ]
+    }
+  },
+  "files": [
+    "Dockerfile"
+  ],
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uisettings": "dockerfile",
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [{"name": "Display port 80", "port": 80}]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}
