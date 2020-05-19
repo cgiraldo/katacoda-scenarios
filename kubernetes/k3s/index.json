@@ -1,0 +1,26 @@
+{ "pathwayTitle" : "kubernetes",
+  "title": "Instalando k3s",
+  "description": "Instalación de un cluster de kubernetes con k3s.",
+  "difficulty": "principiante",
+  "time": "10 minutos",
+  "details": {
+    "steps": [{
+      "title": "Descargando k3s",
+      "text": "step1.md"
+    }],
+    "intro": {
+      "text": "intro.md",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uimessage1": "\u001b[32mInteractive Bash @ HOST\u001b[m\r\n"
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

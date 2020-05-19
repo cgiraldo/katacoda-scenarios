@@ -1,0 +1,17 @@
+{
+    "title": "kubernetes",
+    "description": "Una gentil introducción a Kubernetes.",
+    "icon": "fa-katacoda",
+    "courses": [
+      {
+        "course_id": "k3s",
+        "title": "Instalando k3s",
+        "description": "Instalación de un cluster de kubernetes con k3s."
+      },
+      {
+        "course_id": "kubernetes-101",
+        "title": "Primera prueba de curso en Katacoda",
+        "description": "Introducción a Kubernetes"
+      }
+    ]
+}
