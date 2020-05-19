@@ -8,14 +8,14 @@ Primero vamos a listar los namespaces:
 
 `kubectl get namespaces`{{execute}}
 
-Los espacios de nombres están pensados para utilizarse en entornos con muchos usuarios distribuidos entre múltiples equipos, o proyectos. 
+Los namespaces son un recurso de kubernetes pensado para utilizarse en entornos con muchos usuarios distribuidos entre múltiples equipos, o proyectos. 
 
-Los espacios de nombres son una forma de dividir los recursos del clúster entre múltiples usuarios, equipos o proyectos.
+Los namespaces son una forma de dividir los recursos del clúster entre múltiples usuarios, equipos o proyectos.
 
-No es necesario usar múltiples espacios de nombres sólo para separar recursos ligeramente diferentes, como versiones diferentes de la misma aplicación: para ello utiliza etiquetas para distinguir tus recursos dentro del mismo espacio de nombres.
+No es necesario usar múltiples namespaces sólo para separar recursos ligeramente diferentes, como versiones diferentes de la misma aplicación: para ello utiliza etiquetas para distinguir tus recursos dentro del mismo espacio de nombres.
 
 Podemos ver que inicialmente el cluster cuenta con los namespaces:
-Kubernetes arranca con tres espacios de nombres inicialmente:
+Kubernetes arranca con tres namespaces inicialmente:
 
    * `default` El espacio de nombres por defecto para aquellos objetos que no especifican ningún espacio de nombres
    * `kube-system` El espacio de nombres para aquellos objetos creados por el sistema de Kubernetes
@@ -27,7 +27,8 @@ Cuando consultamos recursos de con `kubectl` sin indicar un namespace, devuelve 
 
 `kubectl get all`{{execute}}
 
-Vemos que el namespace `default` está inicialmente vacío.
+Vemos que k3s crea inicialmente en el namespace `default` un servicio llamado kubernetes. 
+(veremos más acerca de servicios y otros recursos en el curso kubernetes-101)
 
 ### Crear un namespace
 

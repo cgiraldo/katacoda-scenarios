@@ -7,7 +7,6 @@ k3s está especialmente diseñado para ejecutar kubernetes en entornos con recur
 `curl -sfL https://get.k3s.io | sh -`{{execute}}
 
 Ahora podemos comprobar el estado del cluster a traves de kubectl el CLI de kubernetes.
-Llegar al estado Ready puede llevar más 30 segundos.
 
 `kubectl get node`{{execute}}
 
@@ -18,3 +17,11 @@ k3s habilita el despliegue de pods en el nodo master de manera automática.
 En caso de no ser así, se puede habilitar el despliegue de pods en master con:
 
 `kubectl taint node host01 node-role.kubernetes.io/master:NoSchedule-`
+
+Para facilitar el uso de kubectl vamos a activar el autocompletado mediante TAB:
+
+`source <(kubectl completion bash)`{{execute}}
+
+Es interesante añadirlo de forma permanente al fichero bashrc:
+
+`echo "source <(kubectl completion bash)" >> ~/.bashrc`{{execute}}
