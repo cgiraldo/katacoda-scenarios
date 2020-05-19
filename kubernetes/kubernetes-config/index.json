@@ -1,0 +1,44 @@
+{ "pathwayTitle" : "Kubernetes",
+  "title": "Añadiendo Configuración a nuestros Pods",
+  "description": "Uso de variables de entorno, ConfigMaps y Secrets para configurar Pods",
+  "difficulty": "principiante",
+  "time": "20 minutos",
+  "details": {
+    "steps": [{
+      "title": "Configuración de Pods",
+      "text": "pod-configuration.md"
+    },{
+      "title": "ConfigMaps como variables de entorno",
+      "text": "pod-configuration2.md"
+    },{
+      "title": "ConfigMaps como volumen",
+      "text": "pod-configuration3.md"
+    },
+    {
+    "title": "Secrests",
+    "text": "pod-configuration4.md"
+    }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": []
+    }
+  },
+  "environment": {
+    "uilayout": "editor-terminal",
+    "uisettings": "dockerfile",
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [{"name": "Display port 80", "port": 80}]
+  },
+  "backend": {
+    "imageid": "ubuntu"
+  }
+}

@@ -11,21 +11,24 @@ Definición de ConfigMap:
 > A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
 
 
-Vamos a definir varias variables de entorno en un configmap para utilizar en el deployment anterior:
+Vamos a definir varias variables en un configmap:
 
-Abrimos el archivo `manifests/env-configmap.yaml`{{open}}
+Abrimos el archivo `manifests/configmap-multikeys.yaml`{{open}}
 
-Observa que hemos definido dos claves: LISTEN_PORT y OTHER_VARIABLE 
+Observa que el configmap define dos claves: SPECIAL_MEVEL y SPECIAL_TYPE 
 
-Ahora modificamos el manifiesto simple-deployment para configurar las variables de entorno del Pod a partir del configmap:
 
-El nuevo manifiesto es `manifests/configmap-deployment.yaml`{{open}}
+El manifiesto `manifests/pod-configmap-envFrom.yaml{open}} muestra como configurar las variables de entorno del Pod a partir del configmap:
 
-Vamos a inspeccionar el log del pod para ver en que puerto está escuchando:
+Aplicamos el manifiesto:
 
-`kubectl logs deployment/simple-deployment`{{execute}}
+`kubectl apply -f manifests/pod-configmap-envFrom.yaml`{{exec}}
 
-Observa como ahora el pod está escuchando en el puerto 5555, definido en el configmap.
+
+Vamos a inspeccionar el log del pod para ver que variables de entorno tenía definidas:
+
+`kubectl logs dapi-test-pod`{{execute}}
+
 
 
 Existen otras opciones para crear configmaps (a partir del contenido de un fichero, de un directorio, literales, etc.)
