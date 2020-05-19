@@ -2,11 +2,15 @@
   "title": "Instalando k3s",
   "description": "Instalación de un cluster de kubernetes con k3s.",
   "difficulty": "principiante",
-  "time": "10 minutos",
+  "time": "5 minutos",
   "details": {
     "steps": [{
       "title": "Descargando k3s",
       "text": "step1.md"
+    },
+    {
+      "title": "Explorando k3s",
+      "text": "step2.md"
     }],
     "intro": {
       "text": "intro.md",

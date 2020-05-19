@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mkdir -p /root/
-cp -r /tmp/manifests /root/manifests
+curl -sfL https://get.k3s.io | sh -
+

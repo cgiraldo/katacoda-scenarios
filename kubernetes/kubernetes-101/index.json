@@ -1,19 +1,15 @@
-{ "pathwayTitle" : "docker",
-  "title": "Dockerfile",
-  "description": "Building First-Class Docker Images",
-  "difficulty": "intermediate",
-  "time": "15 minutes",
+{ "pathwayTitle" : "Kubernetes",
+  "title": "Kubernetes 101",
+  "description": "Una introducción gentil a Kubernetes",
+  "difficulty": "principiante",
+  "time": "60 minutos",
   "details": {
     "steps": [{
-      "title": "Dockerizing a command",
-      "text": "step1.md"
+      "title": "Descubriendo los Pods",
+      "text": "pods.md"
     },{
-      "title": "Dockerizing a service",
-      "text": "step2.md",
-      "code": "courseStep2.sh"
-    },{
-      "title": "Dockerizing from source-code",
-      "text": "step3.md"
+      "title": "Descubriendo los Deployments",
+      "text": "deployments.md"
     }],
     "intro": {
       "text": "intro.md",
@@ -26,19 +22,12 @@
     "assets": {
       "host01": [
         {
-          "file": "nginx/nginx.vh.default.conf",
-          "target": "/tmp/nginx/"
-        },
-        {
-          "file": "static/index.html",
-          "target": "/tmp/static/"
+          "file": "manifests/",
+          "target": "/root/"
         }
       ]
     }
   },
-  "files": [
-    "Dockerfile"
-  ],
   "environment": {
     "uilayout": "editor-terminal",
     "uisettings": "dockerfile",

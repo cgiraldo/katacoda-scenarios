@@ -9,7 +9,7 @@ k3s está especialmente diseñado para ejecutar kubernetes en entornos con recur
 Ahora podemos comprobar el estado del cluster a traves de kubectl el CLI de kubernetes.
 Llegar al estado Ready puede llevar más 30 segundos.
 
-`k3s kubectl get node`
+`kubectl get node`{{execute}}
 
 Kubernetes define el nodo master sobre el que se despliegan componentes del sistema.
 Por defecto k8s no permite desplegar pods en el nodo master.
@@ -17,4 +17,4 @@ k3s habilita el despliegue de pods en el nodo master de manera automática.
 
 En caso de no ser así, se puede habilitar el despliegue de pods en master con:
 
-`kubectl taint node mymasternode node-role.kubernetes.io/master:NoSchedule-`
+`kubectl taint node host01 node-role.kubernetes.io/master:NoSchedule-`
