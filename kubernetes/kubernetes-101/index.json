@@ -22,7 +22,7 @@
     "assets": {
       "host01": [
         {
-          "file": "manifests/simple-pod.yaml",
+          "file": "simple-pod.yaml",
           "target": "/root/manfiests/"
         }
       ]
