@@ -41,6 +41,10 @@
       {
         "file": "manifests/secret.yaml",
         "target": "/root/manifests"
+      },
+      {
+        "file": "manifests/pod-configmap-volume.yaml",
+        "target": "/root/manifests"
       }
     ]
     }
