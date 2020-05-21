@@ -17,7 +17,11 @@ Kubernetes les da a los Pods su propia dirección IP y un nombre DNS para un coj
 
 Vamos a crear un deployment con una aplicación web:
 
-`kubectl create deployment web --replicas=2 --image=gcr.io/google-samples/hello-app:1.0`{{execute}}
+`kubectl create deployment web --image=gcr.io/google-samples/hello-app:1.0`{{execute}}
+
+Escalamos para tener tres replicas:
+
+`kubectl scale --replicas=3 deployment web`{{execute}}
 
 Podemos inspeccionar la IP de los pods del deployment con:
 
@@ -30,11 +34,13 @@ Podemos comprobar si el pod responde a una petición http con:
 Pero los Pods son efímeros por naturaleza, están diseñados para escalarse y ser creados y destruidos de forma dinámica.
 
 Vamos a eliminar los Pod:
+
 `kubectl delete pods --selector app=web`{{execute}}
 
 Como es un Deployment, el ReplicaSet se encargará de levantar de nuevo Pods para cumplir con el número de réplicas configurado:
 
 Compruebalo con:
+
 `kubectl get pods --selector app=web -o wide`{{execute}}
 
 Pero los nuevos Pods tienen IPs diferentes!
