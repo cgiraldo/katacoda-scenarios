@@ -79,8 +79,13 @@ Ahora realizamos una resolución de nombre en este pod:
 `kubectl exec -ti dnsutils -- nslookup web-service`{{execute}}
 
 Vale, pero he visto servicios headless. ¿Qué quiere decir esto?
+
 Por defecto un service ClusterIP crea una "IP" virtual (ClusterIP) como punto de entrada para las consultas e internamente redirige la consulta
 a la IP de alguno de los pods detrás del servicio.
+
+Abre el manifiesto del servicio headless `manifests/web-headless-svc.yaml`{{open}}
+
+
 Un servicio headless configura el ClusterIP a None, con lo que no se crea esta IP virtual. El servidor DNS de kubernetes proporcionará la lista de IPs de los pods detrás del servicio, en lugar de la IP virtual.
 
 `kubectl apply -f manifests/web-headless-svc.yaml`{{execute}}

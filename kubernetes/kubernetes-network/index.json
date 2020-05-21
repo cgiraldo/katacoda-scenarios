@@ -57,7 +57,7 @@
     "uilayout": "editor-terminal",
     "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
     "showdashboard": true,
-    "dashboards": [{"name": "Display port 80", "port": 80}]
+    "dashboards": [{"name": "Display nodePort 30300", "port": 30300}]
   },
   "backend": {
     "imageid": "ubuntu",
