@@ -14,14 +14,14 @@
         "description": "Conceptos básicos: Pod, Deployment, Statefulset."
       },
       {
+        "course_id": "kubernetes-networking",
+        "title": "Kubernetes Networking",
+        "description": "Recursos para comunicar Pods: Services e Ingress"
+      },
+      {
         "course_id": "kubernetes-config",
         "title": "Añadiendo Configuración a nuestros Pods",
         "description": "Uso de variables de entorno, ConfigMaps y Secrets para configurar Pods"
-        },
-        {
-          "course_id": "kubernetes-networking",
-          "title": "Kubernetes Networking",
-          "description": "Recursos para comunicar Pods: Services e Ingress"
-          }
+      }
     ]
 }

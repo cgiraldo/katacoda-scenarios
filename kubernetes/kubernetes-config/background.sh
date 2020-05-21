@@ -13,3 +13,5 @@ wget https://kubernetes.io/examples/configmap/configmap-multikeys.yaml -O manife
 
 wget https://kubernetes.io/examples/pods/inject/secret.yaml -O manifests/secret.yaml
 wget https://kubernetes.io/examples/pods/inject/secret-pod.yaml -O manifests/secret-pod.yaml
+
+wget https://kubernetes.io/examples/pods/pod-configmap-volume.yaml -O manifests/pod-configmap-volume.yaml

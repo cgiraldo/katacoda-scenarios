@@ -1,33 +1,33 @@
 ## Configmaps
 
-Acabamos de ver como configurar variables de entorno en la especificación del Pod.
+Acabamos de ver como configurar variables de entorno en los contenedores de nuestros Pods.
 
 Sin embargo, esto no es muy portable. Lo ideal es desacoplar la configuración de la especificación del Pod. ¿Cómo?
 
-A través de ConfigMaps
+A través de **ConfigMaps**.
 
 Definición de ConfigMap:
 
 > A ConfigMap is an API object used to store non-confidential data in key-value pairs. Pods can consume ConfigMaps as environment variables, command-line arguments, or as configuration files in a volume.
 
+Abre el manifiesto `manifests/configmap-multikeys.yaml`{{open}}
 
-Vamos a definir varias variables en un configmap:
+Puedes ver que hemos definido dos elementos en los datos del configmap con claves: `SPECIAL_LEVEL` y `SPECIAL_TYPE`.
 
-Abrimos el archivo `manifests/configmap-multikeys.yaml`{{open}}
+Despliega el manifiesto del configmap:
+`kubectl apply -f manifests/configmap-multikeys.yaml`{{execute}}
 
-Observa que el configmap define dos claves: SPECIAL_MEVEL y SPECIAL_TYPE 
+Ahora abre el manifiesto `manifests/pod-configmap-envFrom.yaml`{{open}}
+
+En este caso hemos utilizamos `envFrom` en lugar de `env`, e indicamos que utilice el configmap anterior como fuente de las variables de entorno.
+
+Despliega el manifiesto del pod:
+`kubectl apply -f manifests/pod-configmap-envFrom.yaml`{{execute}}
 
 
-El manifiesto `manifests/pod-configmap-envFrom.yaml{open}} muestra como configurar las variables de entorno del Pod a partir del configmap:
+Inspecciona la salida del pod anterior, ya que el `command` configurado muestra las variables de entorno del contenedor:
 
-Aplicamos el manifiesto:
-
-`kubectl apply -f manifests/pod-configmap-envFrom.yaml`{{exec}}
-
-
-Vamos a inspeccionar el log del pod para ver que variables de entorno tenía definidas:
-
-`kubectl logs dapi-test-pod`{{execute}}
+`kubectl logs dapi-test-pod |grep SPECIAL`{{execute}}
 
 
 Consulta el concepto de ConfigMap en la [documentación oficial de kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/).

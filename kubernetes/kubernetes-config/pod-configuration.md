@@ -5,18 +5,17 @@ Para proporcionar variables de configuración a pods tenemos varias opciones:
 
 ### Configuración  a través de variables de entorno
 
-Podemos incluir el parametro `env` en la especificación del POD para configurar el valor de variables de entorno.
-
-Abrimos la declaración:
+Abre el manifiesto del simple-deployment:
 
 `manifests/simple-deployment.yaml`{{open}}
 
-Vamos a utilizar una variable de entorno para configurar el puerto en el que escucha netcat en el siguiente deployment:
+Observa que hemos incluido ahora el parametro `env` en la especificación del contenedor para añadirle la variable de entorno LISTEN_PORT.
 
+Esta variable de entorno se utiliza después en el comando `nc` ejecutado por el contenedor.
 
-para aplicar esta declaración en nuestro cluster de kubernetes:
+Desplegamos el manifiesto en el cluster:
 
-`kubectl logs apply -f manifests/simple-deployment.yaml`{{execute}}
+`kubectl apply -f manifests/simple-deployment.yaml`{{execute}}
 
 Vamos a inspeccionar el log del pod para ver en que puerto está escuchando:
 

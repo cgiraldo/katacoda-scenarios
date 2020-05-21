@@ -1,5 +1,3 @@
-## Secrets
-
 Los ConfigMaps son un recurso interesante para almacenar variables y ficheros de configuración y definir varios contextos en nuestros despliegues de Kubernetes. Pero que pasa si esas variables son sensibles (i.e. contraseñas o claves ssh).
 
 Para ello se han definido el recurso Secret.
@@ -13,25 +11,29 @@ Vamos a definir un secret con dos valores secretos:
 - username=my-app
 - password=39528$vdg7Jb
 
+Abre la definición del Secret `manifests/secret.yaml`{{open}}
 
-Empezamos convirtiendo los datos secretos a una representación base-64.
+¡Espera! ¡la información de username y password no se corresponde con los valores anteriores!
 
-`echo -n 'my-app' | base64`{{execute}}
+Eso es porque kubernetes almacena los secrets codificados como base-64.
 
-`echo -n '39528$vdg7Jb' | base64`{{execute}}
+Comprueba que los datos se corresponden:
 
-Abrimos la definición del Secret `manifests/secret.yaml`{{open}}
+Encode: `echo -n 'my-app' | base64`{{execute}}
 
-Y aplicamos el manifiesto:
+Decode: `echo -n 'bXktYXBw' | base64 -d && echo`{{execute}}
+
+
+Ahora despliega el secret en el cluster con:
 
 `kubectl apply -f manifests/secret.yaml`{{execute}}
 
-Vamos a inspeccionar el secret:
+Puedes inspeccionar el secret con :
 
-`kubectl get secret test-secret`{{execute}}
-`kubectl describe secret test-secret`{{execute}}
+`kubectl get secret test-secret -o yaml`{{execute}}
 
 ## Secret como volumen de Pod
+
 Vamos a crear un Pod que accede al secret a través de un volumen.
 
 Abre el manifiesto `manifests/secret-pod.yaml`{{open}}
