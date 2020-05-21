@@ -45,6 +45,10 @@
         {
           "file": "manifests/web-deployment.yaml",
           "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/dnsutils.yaml",
+          "target": "/root/manifests"
         }
       ]
     }

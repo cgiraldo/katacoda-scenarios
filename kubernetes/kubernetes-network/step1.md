@@ -53,11 +53,16 @@ Abre `manifests/web-clusterip-svc.yaml`{{open}}
 
 Fijate en los selectores y tipo de servicio.
 Lo aplicamos con:
+
 `kubectl apply -f manifests/web-clusterip-svc.yaml`{{execute}}
 
 Vamos a extraer la IP del servicio (CLUSTER-IP) y llamarla. Esta IP se mantendrá fija para el servicio web-service, y 
 kubernetes se encargará de llevar la petición a un Pod que cumpla con el selector configurado. Si hay múltiples Pods, 
 realizará un balanceo de las peticiones entre los pods.
+
+`kubectl get service web-service -o wide`{{execute}}
+
+
 Compruebalo realizando múltiples peticiones al Cluster-IP.
 
 `curl CLUSTER_IP:80`
@@ -66,9 +71,11 @@ Además kubernetes proporciona un servicio de DNS que permite a los PODs acceder
 Cuando se añade un recurso service, kubernetes añade una entrada con el nombre del recurso (en nuestro caso web-service) en el
 DNS del cluster.
 Vamos a comprobar esto a través de otro pod:
+
 `kubectl apply -f manifests/dnsutils.yaml`{{execute}}
 
 Ahora realizamos una resolución de nombre en este pod:
+
 `kubectl exec -ti dnsutils -- nslookup web-service`{{execute}}
 
 Vale, pero he visto servicios headless. ¿Qué quiere decir esto?
