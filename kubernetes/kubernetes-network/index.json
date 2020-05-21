@@ -1,0 +1,40 @@
+{ "pathwayTitle" : "Kubernetes",
+  "title": "Comunicando nuestros Pods",
+  "description": "Recursos para comunicar Pods: Services e Ingress",
+  "difficulty": "principiante",
+  "time": "20 minutos",
+  "details": {
+    "steps": [{
+      "title": "",
+      "text": "step1.md"
+    },{
+      "title": "",
+      "text": "step2.md"
+    },{
+      "title": "",
+      "text": "step3.md"
+    }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "courseBase.sh",
+      "credits": "https://www.gradiant.org"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": []
+    }
+  },
+  "environment": {
+    "uilayout": "terminal-iframe",
+    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
+    "showdashboard": true,
+    "dashboards": [{"name": "Display port 80", "port": 80}]
+  },
+  "backend": {
+    "imageid": "ubuntu",
+    "port": 30300
+  }
+}

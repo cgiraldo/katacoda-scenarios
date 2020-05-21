@@ -30,6 +30,7 @@ Vamos a inspeccionar el log del pod para ver que variables de entorno tenía def
 `kubectl logs dapi-test-pod`{{execute}}
 
 
+Consulta el concepto de ConfigMap en la [documentación oficial de kubernetes](https://kubernetes.io/docs/concepts/configuration/configmap/).
 
 Existen otras opciones para crear configmaps (a partir del contenido de un fichero, de un directorio, literales, etc.)
-Consulta todos los detalles sobre configmaps en la documentación oficial de kubernetes, por ejemplo [aquí](https://kubernetes.io/docs/concepts/configuration/configmap/) y [aquí](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/.)
+Consulta los detalles [aquí](https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/.)
