@@ -22,7 +22,7 @@
     "intro": {
       "text": "intro.md",
       "code": "foreground.sh",
-      "codeBase":"background.sh",
+      "courseData":"background.sh",
       "credits": "https://www.gradiant.org"
     },
     "finish": {
