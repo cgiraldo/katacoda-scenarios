@@ -47,7 +47,7 @@ Aplicamos el manifiesto:
 
 Vamos a inspeccionar el log del pod ya que muestra sus variables de entorno:
 
-`kubectl logs secret-test-pod`{{execute}}
+`kubectl logs env-secret-pod`{{execute}}
 
 
 Consulta el concepto de secret en la [documentación oficial de kubernetes](https://kubernetes.io/docs/concepts/configuration/secret/).
