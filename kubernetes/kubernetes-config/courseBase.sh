@@ -14,9 +14,11 @@ wget https://kubernetes.io/examples/configmap/configmap-multikeys.yaml -O manife
 wget https://kubernetes.io/examples/pods/inject/secret.yaml -O manifests/secret.yaml
 wget https://kubernetes.io/examples/pods/inject/secret-pod.yaml -O manifests/secret-pod.yaml
 
-echo "Installing k3s"
-curl -sfL https://get.k3s.io | sh -
+#Using kubernetes environment. no need to install k3s
 
-source <(kubectl completion bash)
-echo "source <(kubectl completion bash)" >> ~/.bashrc
+#echo "Installing k3s"
+#curl -sfL https://get.k3s.io | sh -
+
+#source <(kubectl completion bash)
+#echo "source <(kubectl completion bash)" >> ~/.bashrc
 

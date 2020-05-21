@@ -1,5 +1,5 @@
 { "pathwayTitle" : "Kubernetes",
-  "title": "Comunicando nuestros Pods",
+  "title": "Kubernetes Networking",
   "description": "Recursos para comunicar Pods: Services e Ingress",
   "difficulty": "principiante",
   "time": "20 minutos",
