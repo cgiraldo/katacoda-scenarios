@@ -21,7 +21,8 @@
     ],
     "intro": {
       "text": "intro.md",
-      "code": "courseBase.sh",
+      "code": "foreground.sh",
+      "codeBase":"background.sh",
       "credits": "https://www.gradiant.org"
     },
     "finish": {

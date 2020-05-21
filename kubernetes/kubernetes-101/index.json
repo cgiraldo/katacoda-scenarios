@@ -1,6 +1,6 @@
 { "pathwayTitle" : "Kubernetes",
-  "title": "Kubernetes 101",
-  "description": "Una introducción gentil a Kubernetes",
+  "title": "Introducción a Kubernetes",
+  "description": "Conceptos básicos: Pod, Deployment, Statefulset.",
   "difficulty": "principiante",
   "time": "60 minutos",
   "details": {

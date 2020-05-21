@@ -7,11 +7,13 @@ Para proporcionar variables de configuración a pods tenemos varias opciones:
 
 Podemos incluir el parametro `env` en la especificación del POD para configurar el valor de variables de entorno.
 
-Vamos a utilizar una variable de entorno para configurar el puerto en el que escucha netcat en el siguiente deployment:
-
 Abrimos la declaración:
 
 `manifests/deployment.yaml`{{open}}
+
+Vamos a utilizar una variable de entorno para configurar el puerto en el que escucha netcat en el siguiente deployment:
+
+
 
 para aplicar esta declaración en nuestro cluster de kubernetes:
 
