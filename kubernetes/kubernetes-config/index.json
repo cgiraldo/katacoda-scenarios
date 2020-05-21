@@ -29,7 +29,11 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": []
+      "host01": [
+      {
+        "file": "manifests/simple-deployment.yaml",
+        "target": "/root/manifests"
+      }]
     }
   },
   "environment": {

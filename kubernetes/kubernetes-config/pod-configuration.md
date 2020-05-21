@@ -9,15 +9,14 @@ Podemos incluir el parametro `env` en la especificación del POD para configurar
 
 Abrimos la declaración:
 
-`manifests/deployment.yaml`{{open}}
+`manifests/simple-deployment.yaml`{{open}}
 
 Vamos a utilizar una variable de entorno para configurar el puerto en el que escucha netcat en el siguiente deployment:
 
 
-
 para aplicar esta declaración en nuestro cluster de kubernetes:
 
-`kubectl logs apply -f manifests/deployment.yaml`{{execute}}
+`kubectl logs apply -f manifests/simple-deployment.yaml`{{execute}}
 
 Vamos a inspeccionar el log del pod para ver en que puerto está escuchando:
 
