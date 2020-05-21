@@ -14,7 +14,7 @@
         "description": "Conceptos básicos: Pod, Deployment, Statefulset."
       },
       {
-        "course_id": "kubernetes-networking",
+        "course_id": "kubernetes-network",
         "title": "Kubernetes Networking",
         "description": "Recursos para comunicar Pods: Services e Ingress"
       },
