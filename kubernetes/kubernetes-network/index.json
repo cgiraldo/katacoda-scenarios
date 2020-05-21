@@ -25,7 +25,28 @@
       "text": "finish.md"
     },
     "assets": {
-      "host01": []
+      "host01": [
+        {
+          "file": "manifests/web-clusterip-svc.yaml",
+          "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/web-headless-svc.yaml",
+          "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/web-ingress.yaml",
+          "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/web-nodeport-svc.yaml",
+          "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/web-deployment.yaml",
+          "target": "/root/manifests"
+        }
+      ]
     }
   },
   "environment": {

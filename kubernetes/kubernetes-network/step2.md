@@ -11,10 +11,10 @@ Hay tres formas generales de exponer una aplicación:
 
 En este paso vamos a crear un nodePort para acceder a la aplicación web previa.
 
-Abre `manifests/web-nodePort-svc.yaml`{{open}}
+Abre `manifests/web-nodeport-svc.yaml`{{open}}
 
 Ahora aplicamos este manifiesto:
-`kubectl apply manfiest/web-nodePort-svc.yaml`{{execute}}
+`kubectl apply manfiest/web-nodeport-svc.yaml`{{execute}}
 
 `kubectl describe web-nodeport`{{execute}}
 
