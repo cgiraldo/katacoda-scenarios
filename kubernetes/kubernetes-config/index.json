@@ -33,7 +33,16 @@
       {
         "file": "manifests/simple-deployment.yaml",
         "target": "/root/manifests"
-      }]
+      },
+      {
+        "file": "manifests/secret-pod.yaml",
+        "target": "/root/manifests"
+      },
+      {
+        "file": "manifests/secret.yaml",
+        "target": "/root/manifests"
+      }
+    ]
     }
   },
   "environment": {
