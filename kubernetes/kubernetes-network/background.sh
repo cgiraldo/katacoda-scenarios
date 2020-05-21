@@ -11,9 +11,3 @@ wget https://kubernetes.io/examples/configmap/ui.properties -O game-config-files
 wget https://kubernetes.io/examples/pods/pod-configmap-envFrom.yaml -O manifests/pod-configmap-envFrom.yaml
 wget https://kubernetes.io/examples/configmap/configmap-multikeys.yaml -O manifests/configmap-multikeys.yaml
 
-echo "Installing k3s"
-curl -sfL https://get.k3s.io | sh -
-
-source <(kubectl completion bash)
-echo "source <(kubectl completion bash)" >> ~/.bashrc
-
