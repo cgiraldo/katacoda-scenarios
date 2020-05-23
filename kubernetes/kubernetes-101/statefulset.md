@@ -9,18 +9,26 @@ Definición de Statefulset:
 Vamos a desplegar nuestro primer Statefulset
 
 Abrimos la declaración del Statefulset:
+
 `manifests/simple-statefulset.yaml`{{open}}
 
-para aplicar esta declaración en nuestro cluster de kubernetes:
+Y aplica esta declaración en el cluster de kubernetes:
 
 `kubectl apply -f manifests/simple-statefulset.yaml`{{execute}}
 
+Observa el statefulset desplegado:
+
 `kubectl get statefulsets`{{execute}}
 
-`kubectl get pods`{{execute}}
+Y los pods asociados:
 
-Observa como el cambio en el nombre de los pod respecto al deployment.
-Los pods mantienen un orden y utilizan un número incremental para cada pod. 
+`kubectl get pods -l app=simple-stateful`{{execute}}
+
+Utilizamos -l para filtar los pods por etiqueta (label).
+
+Observa el cambio en el nombre de los pod respecto al deployment.
+
+Los pods de un statefulset mantienen un orden y utilizan un número incremental para cada pod. 
 
 Podemos escalar el statefulset para que mantenga 2 instancias con:
 

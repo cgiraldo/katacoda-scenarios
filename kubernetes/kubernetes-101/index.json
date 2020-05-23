@@ -32,6 +32,10 @@
         {
           "file": "manifests/simple-deployment.yaml",
           "target": "/root/manifests"
+        },
+        {
+          "file": "manifests/simple-statefulset.yaml",
+          "target": "/root/manifests"
         }
       ]
     }
