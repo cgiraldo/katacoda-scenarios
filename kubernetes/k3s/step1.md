@@ -1,5 +1,5 @@
 Kubernetes está formado por uno o más nodos, que serán los que desplieguen contenedores.
-Para realizar este curso vamos a instalar kubernetes en una host ubuntu del cloud mediante k3s.
+Para realizar este curso vamos a instalar kubernetes en un host Ubuntu en el cloud mediante k3s.
 
 k3s está especialmente diseñado para ejecutar kubernetes en entornos con recursos reducidos, por lo que es ideal para desplegar un cluster de kubernetes en un único host local.
 
