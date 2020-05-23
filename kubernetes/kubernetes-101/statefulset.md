@@ -1,6 +1,4 @@
 
-## Statefulset
-
 Definición de Statefulset:
 
 > Un StatefulSet es el objeto de la API workload que se usa para gestionar aplicaciones con estado.

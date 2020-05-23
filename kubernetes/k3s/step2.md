@@ -62,11 +62,11 @@ Incluso podemos obtener todos los recursos de todos los namespaces con el flag `
 Podemos indicar de forma permanente el namespace para todas las llamadas futuras a comandos kubectl
 en dicho contexto.
 
-`kubectl config set-context --current --namespace=gradiant{{execute}}
+`kubectl config set-context --current --namespace=gradiant`{{execute}}
 
 La configuración actual de kubectl puede consultarse con:
 
-`kubectl config view | grep namespace`{{execute}}
+`kubectl config view`{{execute}}
 
 
 Consulta todos los detalles sobre namespaces en la [documentación oficial de kubernetes](https://kubernetes.io/es/docs/concepts/overview/working-with-objects/namespaces/).
