@@ -1,6 +1,6 @@
 ¡Felicidades, ya tienes disponible tu primer cluster de kubernetes!
 
-Vamos a explorar que es lo que tenemos.
+Vamos a explorar que es lo que tenemos con kubectl.
 
 ## Namespaces
 
@@ -28,7 +28,7 @@ Cuando consultamos recursos de con `kubectl` sin indicar un namespace, devuelve 
 `kubectl get all`{{execute}}
 
 Vemos que k3s crea inicialmente en el namespace `default` un servicio llamado kubernetes. 
-(veremos más acerca de servicios y otros recursos en el curso kubernetes-101)
+(veremos más acerca de servicios y otros recursos en el siguiente curso)
 
 ### Crear un namespace
 
@@ -66,9 +66,7 @@ en dicho contexto.
 
 La configuración actual de kubectl puede consultarse con:
 
-```
-kubectl config view | grep namespace:
-```
+`kubectl config view | grep namespace`{{execute}}
 
 
 Consulta todos los detalles sobre namespaces en la [documentación oficial de kubernetes](https://kubernetes.io/es/docs/concepts/overview/working-with-objects/namespaces/).
