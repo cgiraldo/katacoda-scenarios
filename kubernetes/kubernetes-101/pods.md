@@ -38,7 +38,7 @@ Abre la declaración del pod:
 
 para aplicar esta declaración en nuestro cluster de kubernetes:
 
-`kubernetes apply -f manifests/simple-pod.yaml`{{execute}}
+`kubectl apply -f manifests/simple-pod.yaml`{{execute}}
 
 `kubectl get pods`{{execute}}
 

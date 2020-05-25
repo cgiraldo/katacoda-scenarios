@@ -16,7 +16,7 @@ Abre `manifests/web-nodeport-svc.yaml`{{open}}
 Ahora aplicamos este manifiesto:
 `kubectl apply -f manifests/web-nodeport-svc.yaml`{{execute}}
 
-`kubectl describe web-nodeport`{{execute}}
+`kubectl describe service web-nodeport`{{execute}}
 
 El nodePort service permite acceder al puerto del port a través de un puerto en los nodos del cluster (nodePort).
 Vamos a comprobarlo:
