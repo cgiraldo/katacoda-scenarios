@@ -25,6 +25,7 @@
     },
     "assets": {
       "host01": [
+        {"file": "Dockerfile", "target": "~/", "chmod": "+w"},
         {
           "file": "nginx/nginx.vh.default.conf",
           "target": "/tmp/nginx/"
@@ -36,15 +37,8 @@
       ]
     }
   },
-  "files": [
-    "Dockerfile"
-  ],
-  "environment": {
-    "uilayout": "editor-terminal",
-    "uisettings": "dockerfile",
-    "uimessage1": "\u001b[32mInteractive Bash\u001b[m\r\n",
-    "showdashboard": true,
-    "dashboards": [{"name": "Display port 80", "port": 80}]
+  "interface": {
+    "layout": "ide"
   },
   "backend": {
     "imageid": "ubuntu"
