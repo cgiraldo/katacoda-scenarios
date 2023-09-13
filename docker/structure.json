@@ -1,0 +1,9 @@
+{
+  "title": "Docker Introducion",
+  "description": "This course get docker container scenarios",
+  "items": [
+    { "path": "01-docker101" },
+    { "path": "02-docker-namespaces" },
+    { "path": "03-dockerfiles" }
+  ]
+}
