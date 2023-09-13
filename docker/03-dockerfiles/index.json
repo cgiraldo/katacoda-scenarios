@@ -10,7 +10,7 @@
     },{
       "title": "Dockerizing a service",
       "text": "step2.md",
-      "code": "courseStep2.sh"
+      "foreground": "courseStep2.sh"
     },{
       "title": "Dockerizing from source-code",
       "text": "step3.md"
