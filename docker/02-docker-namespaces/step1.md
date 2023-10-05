@@ -1,18 +1,22 @@
-Terminal T1 is a shell at the Host Machine that run the containers,
-T1 shell is mainly used to manage containers through the docker CLI
+We will use three Tabs: Press '+' to create the tabs.
+
+- Tab1 will be a shell at the host machine to manage containers through the docker CLI.
+
+- Tab2 will open a terminal in container t2.
+
+- Tab3 will open a terminal in container t3.
 
 
-Terminals T2 and T3 give us access to two independent containers (t1 and t2) that we will run at the host.
+Let's create t2 and t3 container in interactive mode (`-ti`):
 
-Let's deploy the t1 and t2 containers in interactive mode (`-ti`):
+- Run in Tab2: `docker run -ti --rm --name t2 alpine`{{execute}}
 
-- `docker run -ti --rm --name t2 alpine`{{execute T2}}
+- Run in Tab3: `docker run -ti --rm --name t3 alpine`{{execute}}
 
-- `docker run -ti --rm --name t3 alpine`{{execute T3}}
 
-The next CLI command gives us the list of running containers:
+We can list the running containers:
 
- - `docker ps`{{execute T1}}
+- Run in Tab1: `docker ps`{{execute}}
 
 
 
